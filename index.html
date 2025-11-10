@@ -107,14 +107,68 @@
    </section>
 
 <!-- Testimonios --> 
- <section class="mt-20 bg-amber-50 rounded-2xl shadow p-8"> 
-  <h2 class="text-3xl font-bold text-amber-600 mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600 fade-in">Lo que dicen nuestros clientes 💬</h2> 
+<section class="mt-20 bg-amber-50 rounded-2xl shadow p-8"> 
+  <h2 class="text-3xl font-bold text-amber-600 mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600 fade-in">
+    Lo que dicen nuestros clientes 💬
+  </h2> 
+
   <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3"> 
-    <div class="bg-white p-6 rounded-xl shadow-md fade-in"><p class="text-gray-700 mb-4">“Los productos son frescos y deliciosos. ¡Siempre vuelvo por más!”</p><div class="flex items-center"><img src="https://via.placeholder.com/50" alt="Cliente 1" class="rounded-full mr-3"><span class="font-semibold">Ana P.</span></div></div> 
-    <div class="bg-white p-6 rounded-xl shadow-md fade-in"><p class="text-gray-700 mb-4">“Excelente atención y entrega rápida. Muy recomendable.”</p><div class="flex items-center"><img src="https://via.placeholder.com/50" alt="Cliente 2" class="rounded-full mr-3"><span class="font-semibold">Carlos R.</span></div></div> 
-    <div class="bg-white p-6 rounded-xl shadow-md fade-in"><p class="text-gray-700 mb-4">“Mi familia disfruta cada producto. ¡Saben a hogar!”</p><div class="flex items-center"><img src="https://via.placeholder.com/50" alt="Cliente 3" class="rounded-full mr-3"><span class="font-semibold">Lucía M.</span></div></div> 
+    <div class="bg-white p-6 rounded-xl shadow-md fade-in">
+      <p class="text-gray-700 mb-4">“Los productos son frescos y deliciosos. ¡Siempre vuelvo por más!”</p>
+      <div class="flex items-center">
+        <img src="https://via.placeholder.com/50" alt="Cliente 1" class="rounded-full mr-3">
+        <span class="font-semibold">Ana P.</span>
+      </div>
+    </div> 
+    <div class="bg-white p-6 rounded-xl shadow-md fade-in">
+      <p class="text-gray-700 mb-4">“Excelente atención y entrega rápida. Muy recomendable.”</p>
+      <div class="flex items-center">
+        <img src="https://via.placeholder.com/50" alt="Cliente 2" class="rounded-full mr-3">
+        <span class="font-semibold">Carlos R.</span>
+      </div>
+    </div> 
+    <div class="bg-white p-6 rounded-xl shadow-md fade-in">
+      <p class="text-gray-700 mb-4">“Mi familia disfruta cada producto. ¡Saben a hogar!”</p>
+      <div class="flex items-center">
+        <img src="https://via.placeholder.com/50" alt="Cliente 3" class="rounded-full mr-3">
+        <span class="font-semibold">Lucía M.</span>
+      </div>
+    </div> 
   </div>
- </section>
+
+  <!-- ✅ Botón para dejar reseña -->
+  <div class="text-center mt-8">
+    <a href="#form-reseñas" 
+       class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold shadow transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 inline-block">
+      Deja tu reseña aquí ✍️
+    </a>
+  </div>
+</section>
+
+<!-- Formulario de Reseñas -->
+<section id="form-reseñas" class="mt-20 bg-white rounded-2xl shadow p-8 fade-in">
+  <h2 class="text-3xl font-bold text-amber-600 mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600">
+    ¡Deja tu reseña ✍️!
+  </h2>
+
+  <form name="reseñas" method="POST" data-netlify="true" class="max-w-2xl mx-auto flex flex-col gap-4">
+    <input type="hidden" name="form-name" value="reseñas">
+
+    <input type="text" name="nombre" placeholder="Tu nombre" required
+           class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400">
+
+    <input type="email" name="email" placeholder="Tu correo electrónico" required
+           class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400">
+
+    <textarea name="reseña" placeholder="Escribe tu reseña aquí" rows="5" required
+              class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400"></textarea>
+
+    <button type="submit"
+            class="bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover-glow transition">
+      Enviar reseña
+    </button>
+  </form>
+</section>
 
     <!-- Nuestra Historia -->
 <section class="mt-20 bg-white rounded-2xl shadow p-8 fade-in opacity-0 transition-opacity duration-700 ease-out">
