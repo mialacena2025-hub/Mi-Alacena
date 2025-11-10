@@ -171,14 +171,41 @@
   </div> 
 </section>
 
-<!-- Newsletter --> 
-<section class="mt-20 bg-white rounded-2xl shadow p-8 fade-in"> 
- <h2 class="text-3xl font-bold text-amber-600 mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600">Suscríbete a nuestro Newsletter ✉️</h2> 
- <form class="max-w-2xl mx-auto flex flex-col sm:flex-row gap-4"> 
-  <input type="email" placeholder="Tu correo electrónico" class="p-3 rounded-lg border border-gray-300 flex-1 focus:outline-none focus:ring-2 focus:ring-amber-400"> 
-  <button type="submit" class="bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover-glow transition">Suscribirme</button> 
-</form> 
+<!-- Newsletter -->
+<section class="mt-20 bg-white rounded-2xl shadow p-8 fade-in">
+  <h2 class="text-3xl font-bold text-amber-600 mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600">
+    Suscríbete a nuestro Newsletter ✉️
+  </h2>
+  <!-- Formulario Netlify -->
+  <form name="newsletter" method="POST" data-netlify="true" class="max-w-2xl mx-auto flex flex-col sm:flex-row gap-4" id="newsletter-form">
+    <input type="hidden" name="form-name" value="newsletter">
+    <input type="email" name="email" placeholder="Tu correo electrónico" 
+           class="p-3 rounded-lg border border-gray-300 flex-1 focus:outline-none focus:ring-2 focus:ring-amber-400"
+           required>
+    <button type="submit" 
+            class="bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover-glow transition">
+      Suscribirme
+    </button>
+  </form>
+  <!-- Mensaje de confirmación -->
+  <p id="newsletter-success" class="mt-4 text-green-600 text-center hidden">
+    ¡Gracias por suscribirte! Revisa tu correo para confirmar.
+  </p>
 </section>
+
+<!-- Script para mostrar mensaje de éxito -->
+<script>
+  const form = document.getElementById('newsletter-form');
+  const successMsg = document.getElementById('newsletter-success');
+
+  form.addEventListener('submit', (e) => {
+    // Netlify Forms maneja el submit, solo mostramos mensaje
+    setTimeout(() => {
+      successMsg.classList.remove('hidden');
+      form.reset();
+    }, 200); // pequeño delay para asegurar que Netlify procesa
+  });
+</script>
 
 <!-- Contacto --> 
  <section id="contacto" class="mt-20 bg-amber-50 rounded-2xl shadow p-8 fade-in"> 
