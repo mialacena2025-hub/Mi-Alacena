@@ -14,7 +14,9 @@
     <h1 class="text-2xl font-bold">Mi Alacena</h1>
     
     <!-- Botón menú móvil --> 
-    <button id="menu-btn" class="md:hidden text-white focus:outline-none text-2xl">☰</button> 
+    <button id="ver-productos" class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold shadow">
+  Ver productos
+</button>
     
     <!-- Navegación para tablet y escritorio --> 
     <nav id="menu" class="hidden md:flex space-x-6"> 
@@ -220,17 +222,18 @@
     });
   }, appearOptions);
   faders.forEach(fader => appearOnScroll.observe(fader));
-  
-  // 👇 NUEVO CÓDIGO: Scroll suave al hacer clic en "Explorar productos"
-  const explorarBtn = document.getElementById('explorar-btn');
-  if (explorarBtn) {
-    explorarBtn.addEventListener('click', () => {
+
+    // Scroll suave al hacer clic en "Ver productos"
+  const verProductosBtn = document.getElementById('ver-productos');
+  if (verProductosBtn) {
+    verProductosBtn.addEventListener('click', () => {
       const productosSection = document.getElementById('productos');
       if (productosSection) {
         productosSection.scrollIntoView({ behavior: 'smooth' });
       }
     });
   }
+
 </script>
 
 </body>
