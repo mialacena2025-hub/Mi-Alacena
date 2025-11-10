@@ -9,21 +9,41 @@
 
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- 🔝 Menú de categorías -->
-  <header class="bg-amber-500 text-white shadow-md sticky top-0 z-50">
-    <nav class="container mx-auto flex flex-wrap justify-center space-x-4 sm:space-x-6 py-4 text-lg font-semibold">
-      <a href="#abarrotes" class="hover:text-gray-200">Abarrotes</a>
-      <a href="#aceites" class="hover:text-gray-200">Aceites</a>
-      <a href="#bebestibles" class="hover:text-gray-200">Bebestibles</a>
-      <a href="#cafe" class="hover:text-gray-200">Café</a>
-      <a href="#cereales" class="hover:text-gray-200">Cereales</a>
-      <a href="#huevos" class="hover:text-gray-200">Huevos</a>
-      <a href="#leches" class="hover:text-gray-200">Leches</a>
-      <a href="#limpieza" class="hover:text-gray-200">Limpieza</a>
-      <a href="#snacks" class="hover:text-gray-200">Snacks</a>
-      <a href="#verduras" class="hover:text-gray-200">Verduras</a>
-    </nav>
-  </header>
+  <!-- 🔝 Encabezado principal con navegación -->
+<header class="flex justify-between items-center p-4 bg-white shadow-md fixed top-0 left-0 w-full z-50">
+  <div class="text-2xl font-bold text-amber-600">
+    Mi Alacena
+  </div>
+
+  <nav id="menu" class="hidden md:flex space-x-6">
+    <a href="index.html#inicio" class="text-gray-700 hover:text-amber-600 font-semibold transition duration-300 ease-in-out">
+      Inicio
+    </a>
+    <a href="productos.html" class="relative text-gray-700 hover:text-amber-600 font-semibold transition duration-300 ease-in-out group">
+      Productos
+      <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
+    </a>
+    <a href="index.html#contacto" class="text-gray-700 hover:text-amber-600 font-semibold transition duration-300 ease-in-out">
+      Contacto
+    </a>
+  </nav>
+</header>
+
+<!-- 🔸 Barra de categorías debajo del menú -->
+<nav class="bg-amber-500 text-white shadow-md mt-16 sticky top-16 z-40">
+  <div class="container mx-auto flex flex-wrap justify-center space-x-4 sm:space-x-6 py-4 text-lg font-semibold">
+    <a href="#abarrotes" class="hover:text-gray-200">Abarrotes</a>
+    <a href="#aceites" class="hover:text-gray-200">Aceites</a>
+    <a href="#bebestibles" class="hover:text-gray-200">Bebestibles</a>
+    <a href="#cafe" class="hover:text-gray-200">Café</a>
+    <a href="#cereales" class="hover:text-gray-200">Cereales</a>
+    <a href="#huevos" class="hover:text-gray-200">Huevos</a>
+    <a href="#leches" class="hover:text-gray-200">Leches</a>
+    <a href="#limpieza" class="hover:text-gray-200">Limpieza</a>
+    <a href="#snacks" class="hover:text-gray-200">Snacks</a>
+    <a href="#verduras" class="hover:text-gray-200">Verduras</a>
+  </div>
+</nav>
 
   <main class="container mx-auto px-6 py-10">
 
@@ -46,7 +66,12 @@
         </div>
       </div>
       <div class="text-center mt-8">
-        <a href="index.html" class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-lg shadow">Volver al inicio</a>
+        <a href="index.html" 
+   class="bg-gradient-to-r from-orange-500 to-red-500 hover:from-red-500 hover:to-orange-600 
+          text-white font-semibold px-6 py-2 rounded-full shadow-lg 
+          transition duration-300 ease-in-out transform hover:scale-110 animate-bounce">
+  ⬅ Volver al inicio
+</a>
       </div>
     </section>
 
