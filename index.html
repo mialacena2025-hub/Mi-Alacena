@@ -92,25 +92,25 @@
     <!-- Producto 1 -->
 <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transition 
             duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow">
-  <img src="images/destacados/destacado1.webp" alt="prueba abc" class="w-48 h-48 object-cover rounded mb-3">
-  <h3 class="text-lg font-semibold">prueba abc</h3>
+  <img src="images/destacados/destacado1.jpg" alt="Caramelos Hard Candies Roll" class="rounded mb-3 mx-auto">
+  <h3 class="text-lg font-semibold">Werthers original - Producto Aleman</h3>
   <p class="text-gray-600">$1.000</p>
 </div>
 
    <!-- Producto 2 -->
 <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transition 
             duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow">
-  <img src="images/destacados/destacado2.jpg" alt="prueba abc" class="w-48 h-48 object-cover rounded mb-3">
-  <h3 class="text-lg font-semibold">prueba abc</h3>
-  <p class="text-gray-600">$2.000</p>
+  <img src="images/destacados/destacado2.jpg" alt="Edulcorante natural Eritritol " class="w-48 h-48 object-cover rounded mb-3">
+  <h3 class="text-lg font-semibold">Drasanvi - Producto Español</h3>
+  <p class="text-gray-600">$5.000</p>
 </div>
 
     <!-- Producto 3 -->
 <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transition 
             duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow">
-  <img src="images/destacados/destacado3.JPEG" alt="prueba abc" class="w-48 h-48 object-cover rounded mb-3">
-  <h3 class="text-lg font-semibold">prueba abc</h3>
-  <p class="text-gray-600">$3.000</p>
+  <img src="images/destacados/destacado3.jpg" alt="Galletas perro - Creamy creme" class="w-48 h-48 object-cover rounded mb-3">
+  <h3 class="text-lg font-semibold">Galletas tipo oreo - Human Grade </h3>
+  <p class="text-gray-600">$1.200</p>
 </div>
 </section>
 
@@ -252,84 +252,156 @@
 </footer>
 
 <!-- Botón flotante -->
-<button id="btn-reseña" class="fixed bottom-10 right-10 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-full shadow-lg z-50">
+<button id="btn-reseña" 
+  class="fixed bottom-10 right-10 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-full shadow-lg z-50 transition transform hover:scale-105">
   Deja tu reseña ✍️
 </button>
 
 <!-- Drawer del formulario -->
-<div id="drawer-reseña" class="fixed bottom-0 right-0 w-full md:w-96 bg-white shadow-xl p-6 rounded-t-xl hidden z-50">
-  <h2 class="text-xl font-bold mb-4">¡Deja tu reseña!</h2>
-  <form name="reseñas" method="POST" data-netlify="true" class="flex flex-col gap-4">
-    <input type="hidden" name="form-name" value="reseñas">
-    <input type="text" name="nombre" placeholder="Tu nombre" required class="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400">
-    <input type="email" name="email" placeholder="Tu correo electrónico" required class="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400">
-    <textarea name="reseña" placeholder="Escribe tu reseña aquí" rows="5" required class="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400"></textarea>
-    <button type="submit" class="bg-amber-500 hover:bg-amber-600 text-white py-2 rounded font-semibold">Enviar reseña</button>
-  </form>
+<div id="drawer-reseña" 
+  class="fixed bottom-0 right-0 w-full md:w-96 bg-white shadow-xl p-6 rounded-t-xl hidden z-50 transition-transform transform translate-y-full">
+  
+  <!-- Contenido del formulario -->
+  <div id="formulario-reseña">
+    <h2 class="text-xl font-bold mb-4 text-amber-600">¡Deja tu reseña!</h2>
+    <form name="reseñas" method="POST" data-netlify="true" class="flex flex-col gap-4" id="reseña-form">
+      <input type="hidden" name="form-name" value="reseñas">
+
+      <input type="text" name="nombre" placeholder="Tu nombre" required 
+        class="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400">
+
+      <input type="email" name="email" placeholder="Tu correo electrónico" required 
+        class="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400">
+
+      <textarea name="reseña" placeholder="Escribe tu reseña aquí" rows="5" required 
+        class="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400"></textarea>
+
+      <div class="flex justify-between mt-2">
+        <button type="button" id="cerrar-reseña" 
+          class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded font-semibold">
+          Cerrar
+        </button>
+        <button type="submit" 
+          class="bg-amber-500 hover:bg-amber-600 text-white py-2 px-4 rounded font-semibold">
+          Enviar
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Mensaje de éxito oculto -->
+  <div id="mensaje-exito" class="hidden text-center">
+    <h3 class="text-2xl font-bold text-amber-600 mb-2">¡Gracias por tu reseña! 🙌</h3>
+    <p class="text-gray-700 mb-4">Tu opinión nos ayuda a mejorar.</p>
+    <button id="cerrar-mensaje" 
+      class="bg-amber-500 hover:bg-amber-600 text-white py-2 px-4 rounded font-semibold">
+      Cerrar
+    </button>
+  </div>
 </div>
 
-  <!-- Scripts -->
-  <script>
-  // Menú móvil
+<!-- Scripts -->
+<script>
+  // 🔹 Menú móvil
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
 
-  // Botón Back to Top
+  // 🔹 Botón "Back to Top"
   const backToTop = document.getElementById('back-to-top');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      backToTop.classList.remove('opacity-0');
-    } else {
-      backToTop.classList.add('opacity-0');
-    }
-  });
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  if (backToTop) {
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('opacity-0', window.scrollY <= 300);
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
-  // FAQ desplegable
-  const faqBtns = document.querySelectorAll('.faq-btn');
-  faqBtns.forEach(btn => {
+  // 🔹 FAQ desplegable
+  document.querySelectorAll('.faq-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const content = btn.nextElementSibling;
-      content.classList.toggle('hidden');
+      if (content) content.classList.toggle('hidden');
     });
   });
 
-  // Animación fade-in al hacer scroll
+  // 🔹 Animación fade-in al hacer scroll
   const faders = document.querySelectorAll('.fade-in');
   const appearOptions = { threshold: 0.1 };
   const appearOnScroll = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('opacity-100');
-      observer.unobserve(entry.target);
+      if (entry.isIntersecting) {
+        entry.target.classList.add('opacity-100');
+        observer.unobserve(entry.target);
+      }
     });
   }, appearOptions);
   faders.forEach(fader => appearOnScroll.observe(fader));
 
-    // Scroll suave al hacer clic en "Ver productos"
+  // 🔹 Scroll suave a "Ver productos"
   const verProductosBtn = document.getElementById('ver-productos');
   if (verProductosBtn) {
     verProductosBtn.addEventListener('click', () => {
       const productosSection = document.getElementById('productos');
-      if (productosSection) {
-        productosSection.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (productosSection) productosSection.scrollIntoView({ behavior: 'smooth' });
     });
   }
 
-// 🔹 Drawer del formulario de reseñas
+  // 🔹 Drawer del formulario de reseñas
   const btnReseña = document.getElementById('btn-reseña');
   const drawerReseña = document.getElementById('drawer-reseña');
+  const cerrarReseña = document.getElementById('cerrar-reseña');
+  const reseñaForm = document.getElementById('reseña-form');
+  const formularioReseña = document.getElementById('formulario-reseña');
+  const mensajeExito = document.getElementById('mensaje-exito');
+  const cerrarMensaje = document.getElementById('cerrar-mensaje');
 
-  btnReseña.addEventListener('click', () => {
-    drawerReseña.classList.toggle('hidden');
-  });
+  if (btnReseña && drawerReseña) {
+    // Mostrar formulario
+    btnReseña.addEventListener('click', () => {
+      drawerReseña.classList.remove('hidden');
+      setTimeout(() => drawerReseña.classList.remove('translate-y-full'), 10);
+    });
 
+    // Cerrar formulario
+    cerrarReseña.addEventListener('click', () => {
+      drawerReseña.classList.add('translate-y-full');
+      setTimeout(() => drawerReseña.classList.add('hidden'), 300);
+    });
+
+    // Envío de reseña con confirmación
+    reseñaForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Envía el formulario a Netlify
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(reseñaForm)).toString()
+      })
+      .then(() => {
+        // Mostrar mensaje de éxito
+        formularioReseña.classList.add('hidden');
+        mensajeExito.classList.remove('hidden');
+      })
+      .catch(() => alert('Ocurrió un error al enviar tu reseña 😞'));
+    });
+
+    // Cerrar mensaje de éxito
+    cerrarMensaje.addEventListener('click', () => {
+      drawerReseña.classList.add('translate-y-full');
+      setTimeout(() => {
+        drawerReseña.classList.add('hidden');
+        mensajeExito.classList.add('hidden');
+        formularioReseña.classList.remove('hidden');
+        reseñaForm.reset();
+      }, 300);
+    });
+  }
 </script>
 
 </body>
