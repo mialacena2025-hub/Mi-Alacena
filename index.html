@@ -87,32 +87,31 @@
     Productos Destacados 🛒
   </h2>
 
-  <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-    <!-- Producto 1 -->
-    <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col transition 
-                duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow"> 
-      <img src="images/destacados/destacado1.webp" alt="prueba abc" class="rounded mb-3 mx-auto">
-      <h3 class="text-lg font-semibold">prueba abc</h3>
-      <p class="text-gray-600">$1.000</p>
-    </div>
+  <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 justify-items-center">
 
-    <!-- Producto 2 -->
-    <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col transition 
-                duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow"> 
-      <img src="images/destacados/destacado2.jpg" alt="prueba abc" class="rounded mb-3 mx-auto">
-      <h3 class="text-lg font-semibold">prueba abc</h3>
-      <p class="text-gray-600">$2.000</p>
-    </div>
+    <!-- Producto 1 -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transition 
+            duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow">
+  <img src="images/destacados/destacado1.webp" alt="prueba abc" class="w-48 h-48 object-cover rounded mb-3">
+  <h3 class="text-lg font-semibold">prueba abc</h3>
+  <p class="text-gray-600">$1.000</p>
+</div>
+
+   <!-- Producto 2 -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transition 
+            duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow">
+  <img src="images/destacados/destacado2.jpg" alt="prueba abc" class="w-48 h-48 object-cover rounded mb-3">
+  <h3 class="text-lg font-semibold">prueba abc</h3>
+  <p class="text-gray-600">$2.000</p>
+</div>
 
     <!-- Producto 3 -->
-    <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col transition 
-                duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow"> 
-      <img src="images/destacados/destacado3.JPEG" alt="prueba abc" class="rounded mb-3 mx-auto">
-      <h3 class="text-lg font-semibold">prueba abc</h3>
-      <p class="text-gray-600">$3.000</p>
-    </div>
-
-  </div>
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transition 
+            duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow">
+  <img src="images/destacados/destacado3.JPEG" alt="prueba abc" class="w-48 h-48 object-cover rounded mb-3">
+  <h3 class="text-lg font-semibold">prueba abc</h3>
+  <p class="text-gray-600">$3.000</p>
+</div>
 </section>
 
 <!-- Testimonios --> 
@@ -240,7 +239,7 @@
  <section id="contacto" class="mt-20 bg-amber-50 rounded-2xl shadow p-8 fade-in"> 
   <h2 class="text-3xl font-bold text-amber-600 mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600">Contacto 📞</h2> 
   <div class="max-w-3xl mx-auto text-gray-700 space-y-4"> 
-    <p>📍 Dirección: San Antonio de Naltahua 2260, Isla Maipo, Santiago</p> 
+    <p>📍 Dirección: San Antonio de Naltahua, Isla Maipo, Santiago</p> 
     <p>📧 Correo: mialacena2025@gmail.com </p> 
     <p>📱 WhatsApp: <a href="https://wa.me/56966751059" class="text-amber-600 hover:underline">+56 9 6675 1959</a></p> 
   </div> 
@@ -252,25 +251,20 @@
   </div>
 </footer>
 
-<!-- Drawer / Botón flotante para dejar reseña -->
-<div class="fixed bottom-6 right-6 z-50">
-  <button id="toggle-drawer" class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-3 rounded-full font-semibold shadow-lg transition transform hover:-translate-y-1 hover:scale-110">
-    Deja tu reseña ✍️
-  </button>
-</div>
+<!-- Botón flotante -->
+<button id="btn-reseña" class="fixed bottom-10 right-10 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-full shadow-lg z-50">
+  Deja tu reseña ✍️
+</button>
 
-<div id="drawer-backdrop" class="fixed inset-0 bg-black bg-opacity-30 hidden z-40"></div>
-
-<div id="drawer" class="fixed top-0 right-0 h-full w-96 bg-white shadow-xl transform translate-x-full transition-transform duration-300 z-50">
-  <!-- Aquí va el formulario de reseñas -->
-  <h2 class="text-2xl font-bold p-4">¡Deja tu reseña!</h2>
-  <form name="reseñas" method="POST" data-netlify="true" class="p-4 flex flex-col gap-4">
+<!-- Drawer del formulario -->
+<div id="drawer-reseña" class="fixed bottom-0 right-0 w-full md:w-96 bg-white shadow-xl p-6 rounded-t-xl hidden z-50">
+  <h2 class="text-xl font-bold mb-4">¡Deja tu reseña!</h2>
+  <form name="reseñas" method="POST" data-netlify="true" class="flex flex-col gap-4">
     <input type="hidden" name="form-name" value="reseñas">
-    <input type="text" name="nombre" placeholder="Tu nombre" required class="p-3 rounded-lg border border-gray-300">
-    <input type="email" name="email" placeholder="Tu correo electrónico" required class="p-3 rounded-lg border border-gray-300">
-    <textarea name="reseña" placeholder="Escribe tu reseña aquí" rows="5" required class="p-3 rounded-lg border border-gray-300"></textarea>
-    <button type="submit" class="bg-amber-500 text-white px-4 py-2 rounded-lg mt-2">Enviar</button>
-    <button type="button" id="close-drawer" class="mt-2 text-sm text-gray-500 hover:underline">Cerrar</button>
+    <input type="text" name="nombre" placeholder="Tu nombre" required class="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400">
+    <input type="email" name="email" placeholder="Tu correo electrónico" required class="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400">
+    <textarea name="reseña" placeholder="Escribe tu reseña aquí" rows="5" required class="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400"></textarea>
+    <button type="submit" class="bg-amber-500 hover:bg-amber-600 text-white py-2 rounded font-semibold">Enviar reseña</button>
   </form>
 </div>
 
@@ -328,7 +322,15 @@
     });
   }
 
+// 🔹 Drawer del formulario de reseñas
+  const btnReseña = document.getElementById('btn-reseña');
+  const drawerReseña = document.getElementById('drawer-reseña');
+
+  btnReseña.addEventListener('click', () => {
+    drawerReseña.classList.toggle('hidden');
+  });
+
 </script>
 
 </body>
-</html>    
+</html>  
