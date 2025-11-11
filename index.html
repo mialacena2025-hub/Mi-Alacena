@@ -55,11 +55,13 @@
     <p class="text-lg mb-6">Productos frescos, locales y con sabor a hogar 🥚🥖🥛</p>
 
     <!-- ✅ Nuevo botón WhatsApp con "Pincha aquí" animado -->
-    <a href="https://wa.me/c/56966751059" target="_blank" 
-       class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold shadow transition transform hover:-translate-y-1 hover:scale-105 inline-block">
-      ¿Quieres seguirnos en WhatsApp? – 
-      <span class="text-lime-300 font-bold animate-pulse">Pincha aquí</span>
-    </a>
+    <!-- Botón WhatsApp mejorado -->
+<a href="https://wa.me/c/56966751059" target="_blank"
+   class="relative inline-block bg-green-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:-translate-y-1 hover:scale-105">
+  
+  <span class="absolute inset-0 border-2 border-green-700 rounded-lg pointer-events-none"></span> 
+       <span class="text-lime-300 font-bold animate-pulse">Pincha aquí</span>
+      </a>
 
     <p class="mt-4 text-sm text-gray-200">
       Súmate al grupo donde publicamos ofertas especiales y puedes contactarnos directamente 💬
@@ -97,7 +99,7 @@
     <!-- Producto 2 -->
     <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col transition 
                 duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow"> 
-      <img src="images/destacados/destacado2.webp" alt="prueba abc" class="rounded mb-3 mx-auto">
+      <img src="images/destacados/destacado2.jpg" alt="prueba abc" class="rounded mb-3 mx-auto">
       <h3 class="text-lg font-semibold">prueba abc</h3>
       <p class="text-gray-600">$2.000</p>
     </div>
@@ -105,7 +107,7 @@
     <!-- Producto 3 -->
     <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col transition 
                 duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow"> 
-      <img src="images/destacados/destacado3.webp" alt="prueba abc" class="rounded mb-3 mx-auto">
+      <img src="images/destacados/destacado3.JPEG" alt="prueba abc" class="rounded mb-3 mx-auto">
       <h3 class="text-lg font-semibold">prueba abc</h3>
       <p class="text-gray-600">$3.000</p>
     </div>
@@ -143,41 +145,7 @@
     </div> 
   </div>
 
-  <!-- ✅ Botón para dejar reseña -->
-  <div class="text-center mt-8">
-    <a href="#form-reseñas" 
-       class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold shadow transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 inline-block">
-      Deja tu reseña aquí ✍️
-    </a>
-  </div>
-</section>
-
-<!-- Formulario de Reseñas -->
-<section id="form-reseñas" class="mt-20 bg-white rounded-2xl shadow p-8 fade-in">
-  <h2 class="text-3xl font-bold text-amber-600 mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600">
-    ¡Deja tu reseña ✍️!
-  </h2>
-
-  <form name="reseñas" method="POST" data-netlify="true" class="max-w-2xl mx-auto flex flex-col gap-4">
-    <input type="hidden" name="form-name" value="reseñas">
-
-    <input type="text" name="nombre" placeholder="Tu nombre" required
-           class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400">
-
-    <input type="email" name="email" placeholder="Tu correo electrónico" required
-           class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400">
-
-    <textarea name="reseña" placeholder="Escribe tu reseña aquí" rows="5" required
-              class="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400"></textarea>
-
-    <button type="submit"
-            class="bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover-glow transition">
-      Enviar reseña
-    </button>
-  </form>
-</section>
-
-    <!-- Nuestra Historia -->
+      <!-- Nuestra Historia -->
 <section class="mt-20 bg-white rounded-2xl shadow p-8 fade-in opacity-0 transition-opacity duration-700 ease-out">
   <h2 class="text-3xl font-bold text-amber-600 mb-6">Nuestra historia 🏡</h2>
   <div class="flex flex-col md:flex-row items-center justify-center gap-8">
@@ -283,6 +251,28 @@
     © 2025 Mi Alacena. Todos los derechos reservados.
   </div>
 </footer>
+
+<!-- Drawer / Botón flotante para dejar reseña -->
+<div class="fixed bottom-6 right-6 z-50">
+  <button id="toggle-drawer" class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-3 rounded-full font-semibold shadow-lg transition transform hover:-translate-y-1 hover:scale-110">
+    Deja tu reseña ✍️
+  </button>
+</div>
+
+<div id="drawer-backdrop" class="fixed inset-0 bg-black bg-opacity-30 hidden z-40"></div>
+
+<div id="drawer" class="fixed top-0 right-0 h-full w-96 bg-white shadow-xl transform translate-x-full transition-transform duration-300 z-50">
+  <!-- Aquí va el formulario de reseñas -->
+  <h2 class="text-2xl font-bold p-4">¡Deja tu reseña!</h2>
+  <form name="reseñas" method="POST" data-netlify="true" class="p-4 flex flex-col gap-4">
+    <input type="hidden" name="form-name" value="reseñas">
+    <input type="text" name="nombre" placeholder="Tu nombre" required class="p-3 rounded-lg border border-gray-300">
+    <input type="email" name="email" placeholder="Tu correo electrónico" required class="p-3 rounded-lg border border-gray-300">
+    <textarea name="reseña" placeholder="Escribe tu reseña aquí" rows="5" required class="p-3 rounded-lg border border-gray-300"></textarea>
+    <button type="submit" class="bg-amber-500 text-white px-4 py-2 rounded-lg mt-2">Enviar</button>
+    <button type="button" id="close-drawer" class="mt-2 text-sm text-gray-500 hover:underline">Cerrar</button>
+  </form>
+</div>
 
   <!-- Scripts -->
   <script>
