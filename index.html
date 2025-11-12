@@ -404,5 +404,23 @@
   }
 </script>
 
+<script>
+  const btn = document.getElementById("btn-reseña");
+  if (btn) {
+    btn.style.display = "block";
+    btn.style.position = "fixed";
+    btn.style.bottom = "20px";
+    btn.style.right = "20px";
+    btn.style.zIndex = "999999";
+    btn.style.background = "red";
+    btn.style.color = "white";
+    btn.style.padding = "12px 20px";
+    btn.style.borderRadius = "9999px";
+    btn.textContent = "BOTÓN PRUEBA 🔥";
+  } else {
+    console.error("❌ No se encontró el botón #btn-reseña");
+  }
+</script>
+
 </body>
 </html>  
