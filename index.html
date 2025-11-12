@@ -251,36 +251,37 @@
   </div>
 </footer>
 
-<!-- Botón flotante -->
-<button id="btn-reseña" class="fixed bottom-24 right-10 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-full shadow-2xl z-[1000000] transition transform hover:scale-110 focus:ring-4 focus:ring-amber-300">
+<!-- 🔹 Botón flotante de reseña -->
+<button id="btn-reseña"
+  class="fixed bottom-24 right-8 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-full shadow-2xl z-[999999] transition transform hover:scale-110 focus:ring-4 focus:ring-amber-300">
   Deja tu reseña ✍️
 </button>
 
-<!-- Drawer del formulario -->
-<div id="drawer-reseña" 
-  class="fixed bottom-0 right-0 w-full md:w-96 bg-white shadow-xl p-6 rounded-t-xl hidden z-50 transition-transform transform translate-y-full">
-  
+<!-- 🔹 Drawer del formulario -->
+<div id="drawer-reseña"
+  class="fixed bottom-0 right-0 w-full md:w-96 bg-white shadow-xl p-6 rounded-t-xl hidden z-[999999] transition-transform transform translate-y-full">
+
   <!-- Contenido del formulario -->
   <div id="formulario-reseña">
     <h2 class="text-xl font-bold mb-4 text-amber-600">¡Deja tu reseña!</h2>
     <form name="reseñas" method="POST" data-netlify="true" class="flex flex-col gap-4" id="reseña-form">
       <input type="hidden" name="form-name" value="reseñas">
 
-      <input type="text" name="nombre" placeholder="Tu nombre" required 
+      <input type="text" name="nombre" placeholder="Tu nombre" required
         class="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400">
 
-      <input type="email" name="email" placeholder="Tu correo electrónico" required 
+      <input type="email" name="email" placeholder="Tu correo electrónico" required
         class="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400">
 
-      <textarea name="reseña" placeholder="Escribe tu reseña aquí" rows="5" required 
+      <textarea name="reseña" placeholder="Escribe tu reseña aquí" rows="5" required
         class="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400"></textarea>
 
       <div class="flex justify-between mt-2">
-        <button type="button" id="cerrar-reseña" 
+        <button type="button" id="cerrar-reseña"
           class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded font-semibold">
           Cerrar
         </button>
-        <button type="submit" 
+        <button type="submit"
           class="bg-amber-500 hover:bg-amber-600 text-white py-2 px-4 rounded font-semibold">
           Enviar
         </button>
@@ -292,7 +293,7 @@
   <div id="mensaje-exito" class="hidden text-center">
     <h3 class="text-2xl font-bold text-amber-600 mb-2">¡Gracias por tu reseña! 🙌</h3>
     <p class="text-gray-700 mb-4">Tu opinión nos ayuda a mejorar.</p>
-    <button id="cerrar-mensaje" 
+    <button id="cerrar-mensaje"
       class="bg-amber-500 hover:bg-amber-600 text-white py-2 px-4 rounded font-semibold">
       Cerrar
     </button>
