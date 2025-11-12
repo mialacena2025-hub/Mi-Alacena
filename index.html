@@ -253,7 +253,8 @@
 
 <!-- Botón flotante -->
 <button id="btn-reseña"
-  class="fixed bottom-10 right-10 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-full shadow-2xl z-[9999] transition transform hover:scale-110 focus:ring-4 focus:ring-amber-300">
+  class="fixed bottom-8 right-8 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-full shadow-2xl transition transform hover:scale-110 focus:ring-4 focus:ring-amber-300"
+  style="z-index:999999; position:fixed;">
   Deja tu reseña ✍️
 </button>
 
@@ -401,24 +402,6 @@
         reseñaForm.reset();
       }, 300);
     });
-  }
-</script>
-
-<script>
-  const btn = document.getElementById("btn-reseña");
-  if (btn) {
-    btn.style.display = "block";
-    btn.style.position = "fixed";
-    btn.style.bottom = "20px";
-    btn.style.right = "20px";
-    btn.style.zIndex = "999999";
-    btn.style.background = "red";
-    btn.style.color = "white";
-    btn.style.padding = "12px 20px";
-    btn.style.borderRadius = "9999px";
-    btn.textContent = "BOTÓN PRUEBA 🔥";
-  } else {
-    console.error("❌ No se encontró el botón #btn-reseña");
   }
 </script>
 
