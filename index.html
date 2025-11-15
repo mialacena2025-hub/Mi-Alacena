@@ -93,15 +93,31 @@
   <img src="images/destacados/destacado1.jpg" alt="Caramelos Hard Candies Roll" class="w-48 h-48 object-cover rounded mb-3">
   <h3 class="text-lg font-semibold">Caramelos de leche - Werthers original</h3>
   <p class="text-gray-600">$1.000</p>
-</div>
+  <button 
+    class="bg-gradient-to-r from-amber-500 to-orange-600 text-white 
+    px-3 py-1 rounded-full shadow hover:scale-105 transition add-to-cart"
+    data-name="Caramelos Hard Candies Roll"
+    data-price="1000"
+  >
+    🛒 Agregar al carrito
+    </button>
+    </div>
 
    <!-- Producto 2 -->
 <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transition 
             duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow">
-  <img src="images/destacados/destacado2.jpg" alt="Edulcorante natural Eritritol " class="w-48 h-48 object-cover rounded mb-3">
+  <img src="images/destacados/destacado2.jpg" alt="Edulcorante natural Eritritol" class="w-48 h-48 object-cover rounded mb-3">
   <h3 class="text-lg font-semibold">Endulzante natural ERITRITOL</h3>
   <p class="text-gray-600">$5.000</p>
-</div>
+<button 
+    class="bg-gradient-to-r from-amber-500 to-orange-600 text-white 
+    px-3 py-1 rounded-full shadow hover:scale-105 transition add-to-cart"
+    data-name="Edulcorante natural Eritritol"
+    data-price="5000"
+  >
+    🛒 Agregar al carrito
+    </button>
+    </div>
 
     <!-- Producto 3 -->
 <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transition 
@@ -109,7 +125,15 @@
   <img src="images/destacados/destacado3.jpg" alt="Galletas perro - Creamy creme" class="w-48 h-48 object-cover rounded mb-3">
   <h3 class="text-lg font-semibold">Galletas para perro - Human Grade </h3>
   <p class="text-gray-600">$1.000</p>
-</div>
+<button 
+    class="bg-gradient-to-r from-amber-500 to-orange-600 text-white 
+    px-3 py-1 rounded-full shadow hover:scale-105 transition add-to-cart"
+    data-name="Galletas perro - Creamy creme"
+    data-price="1000"
+  >
+    🛒 Agregar al carrito
+    </button>
+    </div>
 </section>
 
 <!-- Testimonios --> 
@@ -267,55 +291,6 @@
   </div>
 </footer>
 
-<!-- 🔹 Botón flotante de reseña -->
-<button id="btn-reseña"
-  class="fixed bottom-24 right-8 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-full shadow-2xl z-[999999] transition transform hover:scale-110 focus:ring-4 focus:ring-amber-300">
-  Deja tu reseña ✍️
-</button>
-
-<!-- 🔹 Drawer del formulario -->
-<div id="drawer-reseña"
-  class="fixed bottom-0 right-0 w-full md:w-96 bg-white shadow-xl p-6 rounded-t-xl hidden z-[999999] transition-transform transform translate-y-full">
-
-  <!-- Contenido del formulario -->
-  <div id="formulario-reseña">
-    <h2 class="text-xl font-bold mb-4 text-amber-600">¡Deja tu reseña!</h2>
-    <form name="reseñas" method="POST" data-netlify="true" class="flex flex-col gap-4" id="reseña-form">
-      <input type="hidden" name="form-name" value="reseñas">
-
-      <input type="text" name="nombre" placeholder="Tu nombre" required
-        class="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400">
-
-      <input type="email" name="email" placeholder="Tu correo electrónico" required
-        class="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400">
-
-      <textarea name="reseña" placeholder="Escribe tu reseña aquí" rows="5" required
-        class="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-amber-400"></textarea>
-
-      <div class="flex justify-between mt-2">
-        <button type="button" id="cerrar-reseña"
-          class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded font-semibold">
-          Cerrar
-        </button>
-        <button type="submit"
-          class="bg-amber-500 hover:bg-amber-600 text-white py-2 px-4 rounded font-semibold">
-          Enviar
-        </button>
-      </div>
-    </form>
-  </div>
-
-  <!-- Mensaje de éxito oculto -->
-  <div id="mensaje-exito" class="hidden text-center">
-    <h3 class="text-2xl font-bold text-amber-600 mb-2">¡Gracias por tu reseña! 🙌</h3>
-    <p class="text-gray-700 mb-4">Tu opinión nos ayuda a mejorar.</p>
-    <button id="cerrar-mensaje"
-      class="bg-amber-500 hover:bg-amber-600 text-white py-2 px-4 rounded font-semibold">
-      Cerrar
-    </button>
-  </div>
-</div>
-
 <!-- Scripts -->
 <script>
   // 🔹 Menú móvil
@@ -367,57 +342,107 @@
       if (productosSection) productosSection.scrollIntoView({ behavior: 'smooth' });
     });
   }
+  
+</script>
 
-  // 🔹 Drawer del formulario de reseñas
-  const btnReseña = document.getElementById('btn-reseña');
-  const drawerReseña = document.getElementById('drawer-reseña');
-  const cerrarReseña = document.getElementById('cerrar-reseña');
-  const reseñaForm = document.getElementById('reseña-form');
-  const formularioReseña = document.getElementById('formulario-reseña');
-  const mensajeExito = document.getElementById('mensaje-exito');
-  const cerrarMensaje = document.getElementById('cerrar-mensaje');
+<!-- Carrito flotante -->
+<div id="cart" class="fixed bottom-6 right-6 bg-white shadow-lg rounded-lg p-4 w-80 max-h-96 overflow-y-auto hidden z-50">
+  <h3 class="font-bold text-lg mb-2">Carrito 🛒</h3>
+  <ul id="cart-items" class="mb-2"></ul>
+  <p class="font-semibold">Total: $<span id="cart-total">0</span></p>
+  <button id="checkout" class="mt-2 w-full bg-green-500 text-white py-2 rounded-full hover:bg-green-600 transition">
+Confirmar compra
+  </button>
+  <button id="close-cart" class="mt-1 w-full bg-red-500 text-white py-2 rounded-full hover:bg-red-600 transition">
+    Cerrar
+  </button>
+</div>
 
-  if (btnReseña && drawerReseña) {
-    // Mostrar formulario
-    btnReseña.addEventListener('click', () => {
-      drawerReseña.classList.remove('hidden');
-      setTimeout(() => drawerReseña.classList.remove('translate-y-full'), 10);
+<!-- Botón flotante para abrir carrito -->
+<button id="open-cart" class="fixed bottom-6 right-6 bg-amber-500 text-white px-4 py-2 rounded-full shadow-lg hover:scale-105 transition z-50">
+  🛒 Ver carrito
+</button>
+
+<script>
+  const cart = [];
+  const cartItemsEl = document.getElementById('cart-items');
+  const cartTotalEl = document.getElementById('cart-total');
+  const cartContainer = document.getElementById('cart');
+  const openCartBtn = document.getElementById('open-cart');
+  const closeCartBtn = document.getElementById('close-cart');
+
+  // Abrir/cerrar carrito
+  openCartBtn.addEventListener('click', () => cartContainer.classList.remove('hidden'));
+  closeCartBtn.addEventListener('click', () => cartContainer.classList.add('hidden'));
+
+  // Agregar productos desde botones
+  document.querySelectorAll('.add-to-cart').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const name = btn.dataset.name;
+      const price = parseInt(btn.dataset.price);
+
+      // Revisar si ya existe en el carrito
+      const existing = cart.find(p => p.name === name);
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({name, price, qty: 1});
+      }
+      renderCart();
     });
+  });
 
-    // Cerrar formulario
-    cerrarReseña.addEventListener('click', () => {
-      drawerReseña.classList.add('translate-y-full');
-      setTimeout(() => drawerReseña.classList.add('hidden'), 300);
+  // Renderizar carrito
+  function renderCart() {
+    cartItemsEl.innerHTML = '';
+    let total = 0;
+    cart.forEach((item, index) => {
+      total += item.price * item.qty;
+      const li = document.createElement('li');
+      li.classList.add('flex', 'justify-between', 'items-center', 'mb-1');
+      li.innerHTML = `
+        <span>${item.name} x${item.qty}</span>
+        <span>
+          $${item.price.toLocaleString()} 
+          <button data-index="${index}" class="text-green-500 font-bold px-1">+</button>
+          <button data-index="${index}" class="text-red-500 font-bold px-1">-</button>
+          <button data-index="${index}" class="text-gray-700 font-bold px-1">✖</button>
+        </span>
+      `;
+      cartItemsEl.appendChild(li);
     });
+    cartTotalEl.innerText = total.toLocaleString();
 
-    // Envío de reseña con confirmación
-    reseñaForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      // Envía el formulario a Netlify
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(reseñaForm)).toString()
-      })
-      .then(() => {
-        // Mostrar mensaje de éxito
-        formularioReseña.classList.add('hidden');
-        mensajeExito.classList.remove('hidden');
-      })
-      .catch(() => alert('Ocurrió un error al enviar tu reseña 😞'));
-    });
-
-    // Cerrar mensaje de éxito
-    cerrarMensaje.addEventListener('click', () => {
-      drawerReseña.classList.add('translate-y-full');
-      setTimeout(() => {
-        drawerReseña.classList.add('hidden');
-        mensajeExito.classList.add('hidden');
-        formularioReseña.classList.remove('hidden');
-        reseñaForm.reset();
-      }, 300);
+    // Funcionalidad de los botones + / - / eliminar
+    cartItemsEl.querySelectorAll('button').forEach(button => {
+      const index = button.dataset.index;
+      if (button.innerText === '+') {
+        button.addEventListener('click', () => {
+          cart[index].qty++;
+          renderCart();
+        });
+      } else if (button.innerText === '-') {
+        button.addEventListener('click', () => {
+          cart[index].qty--;
+          if (cart[index].qty <= 0) cart.splice(index,1);
+          renderCart();
+        });
+      } else if (button.innerText === '✖') {
+        button.addEventListener('click', () => {
+          cart.splice(index,1);
+          renderCart();
+        });
+      }
     });
   }
+
+  // Checkout
+  document.getElementById('checkout').addEventListener('click', () => {
+    alert('Compra confirmada. Gracias!');
+    cart.length = 0; // Vaciar carrito
+    renderCart();
+    cartContainer.classList.add('hidden');
+  });
 </script>
 
 </body>
