@@ -148,42 +148,58 @@
 <section class="mt-20 bg-white rounded-2xl shadow p-8 fade-in opacity-0 transition-opacity duration-700 ease-out">
   <h2 class="text-3xl font-bold text-amber-600 mb-6">Nuestra historia 🏡</h2>
   <div class="flex flex-col md:flex-row items-center justify-center gap-8">
-    <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=600&q=80" alt="Pan artesanal" class="w-full md:w-1/2 rounded-xl shadow-md">
+    <img src="images/varios/varios1.jpg" alt="Pan artesanal" class="w-full md:w-1/2 rounded-xl shadow-md">
     <div class="md:w-1/2 text-gray-700 leading-relaxed">
-      <p class="mb-4"><strong>Mi Alacena</strong> nació con el sueño de acercar productos frescos y locales a las familias de nuestra comunidad. Desde pan amasado hasta huevos de campo, trabajamos con pequeños productores para ofrecer alimentos con sabor real y hechos con cariño.</p>
-      <p>Cada compra apoya a quienes cultivan, elaboran y entregan con esfuerzo lo mejor de nuestra tierra. ¡Gracias por ser parte de esta historia y elegir lo natural! 🌾</p>
+      <p class="mb-4"><strong>Mi Alacena</strong> nació con el sueño de acompañarte en el abastecimiento de abarrotes para tu hogar, manteniendo siempre tu alacena completa con las cosas que necesitas. Pero no podíamos quedarnos ahi, necesitabamos mejorar la experiencia del servicio, con productos garantizados y a un precio competitivo. Mayoristas, ofertas de supermercados y distribuidoras hay muchas, pero que todo este inclído en "Mi Alacena" es el desafío. Desde exquisitos y frescos huevos "Don Vicho", frescas e higenizadas verduras de calidad "3F" hasta por supuesto, la mas completa linea de abarrotes que necetias, todo en un solo lugar.</p>
+      <p>Esto es mas que un emprendimiento, es una pasion adquirida desde muy niño y hoy se hace realidad ¡Gracias por ser parte de esta historia y preferirnos. Calidad, precio y servicio hoy y siempre! 🌾</p>
     </div>
   </div>
 </section>
 
-<!-- Blog / Novedades -->
+<!-- Promociones destacadas -->
 <section class="mt-20 bg-amber-50 rounded-2xl shadow p-8 fade-in opacity-0 transition-opacity duration-700 ease-out">
-  <h2 class="text-3xl font-bold text-amber-600 mb-8 text-center">Novedades 📰</h2>
-  <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-    <div class="bg-white rounded-xl shadow-md overflow-hidden">
-      <img src="https://via.placeholder.com/400x200" alt="Nuevo Pan Artesanal" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h3 class="text-lg font-semibold mb-2">Nuevo Pan Artesanal</h3>
-        <p class="text-gray-600 mb-2 text-sm">Publicado: 01/11/2025</p>
-        <p class="text-gray-700">Descubre nuestro nuevo pan artesanal hecho con ingredientes locales y frescos.</p>
-      </div>
+  <h2 class="text-3xl font-bold text-amber-600 mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700">
+    Promociones Destacadas 🔥
+  </h2>
+
+  <!-- Imagen previa principal -->
+  <div class="relative rounded-2xl overflow-hidden shadow-lg mb-6">
+    <img 
+      src="images/varios/varios3.jpg" 
+      alt="Promociones especiales" 
+      class="w-full h-64 object-cover">
+    
+    <!-- Botón visible siempre sobre la imagen -->
+    <a href="#promos-categorias" 
+       class="absolute bottom-4 right-4 bg-amber-600 text-white px-6 py-2 rounded-xl shadow-md font-semibold hover:bg-amber-700 transition">
+       Ver promociones →
+    </a>
+  </div>
+
+  <!-- Descripción corta -->
+  <p class="text-center text-gray-700 mb-4">
+    Aquí encontrarás ofertas especiales y promociones que aparecen de manera ocasional.
+  </p>
+
+  <!-- Categorías de promociones (se muestran al entrar) -->
+  <div id="promos-categorias" class="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+    
+    <!-- Ejemplo de categoría -->
+    <div class="bg-white rounded-xl shadow p-5 hover:shadow-lg transition cursor-pointer">
+      <h3 class="text-lg font-bold text-amber-700 mb-2">Caja de huevos primera (Color o blanco)</h3>
+      <p class="text-gray-600 text-sm">$35.000 - Valor x caja de 180 unidades.</p>
     </div>
-    <div class="bg-white rounded-xl shadow-md overflow-hidden">
-      <img src="https://via.placeholder.com/400x200" alt="Huevos de Temporada" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h3 class="text-lg font-semibold mb-2">Huevos de Temporada</h3>
-        <p class="text-gray-600 mb-2 text-sm">Publicado: 28/10/2025</p>
-        <p class="text-gray-700">Nuestros huevos frescos de campo ya están disponibles en la tienda. ¡Apoya la producción local!</p>
-      </div>
+
+    <div class="bg-white rounded-xl shadow p-5 hover:shadow-lg transition cursor-pointer">
+      <h3 class="text-lg font-bold text-amber-700 mb-2">Caja detergente concentrado DAPPER 3Lt</h3>
+      <p class="text-gray-600 text-sm">$20.000 - Valor x caja de 5 unidades.</p>
     </div>
-    <div class="bg-white rounded-xl shadow-md overflow-hidden">
-      <img src="https://via.placeholder.com/400x200" alt="Promoción Semanal" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h3 class="text-lg font-semibold mb-2">Promoción Semanal</h3>
-        <p class="text-gray-600 mb-2 text-sm">Publicado: 25/10/2025</p>
-        <p class="text-gray-700">Aprovecha nuestra promoción semanal: compra 2 panes y recibe 1 gratis. Solo hasta agotar stock.</p>
-      </div>
+
+    <div class="bg-white rounded-xl shadow p-5 hover:shadow-lg transition cursor-pointer">
+      <h3 class="text-lg font-bold text-amber-700 mb-2">Caja puré de tomates Baggio </h3>
+      <p class="text-gray-600 text-sm">$13.990 - Valor x caja de 12 unidades.</p>
     </div>
+
   </div>
 </section>
 
@@ -191,11 +207,13 @@
   <h2 class="text-3xl font-bold text-amber-600 mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600">Preguntas Frecuentes ❓</h2> 
   <div class="max-w-3xl mx-auto text-left space-y-4"> 
     <button class="faq-btn w-full text-left font-semibold bg-amber-200 p-3 rounded">¿Cómo hago un pedido?</button> 
-    <div class="faq-content hidden p-3 text-gray-700 bg-amber-100 rounded">Puedes realizar tu pedido a través de nuestra página web o contactándonos por WhatsApp.</div> 
-    <button class="faq-btn w-full text-left font-semibold bg-amber-200 p-3 rounded">¿Realizan despacho a domicilio?</button> 
-    <div class="faq-content hidden p-3 text-gray-700 bg-amber-100 rounded">Sí, realizamos entregas en Talagante y alrededores con horarios programados.</div> 
-    <button class="faq-btn w-full text-left font-semibold bg-amber-200 p-3 rounded">¿Puedo pagar con tarjeta?</button> 
-    <div class="faq-content hidden p-3 text-gray-700 bg-amber-100 rounded">Aceptamos pagos con efectivo, transferencia y tarjetas de crédito/débito.</div> 
+    <div class="faq-content hidden p-3 text-gray-700 bg-amber-100 rounded">Puedes realizar tu pedido a través de nuestro WhatsApp +56966751059 o mediante nuestra página web.</div> 
+    <button class="faq-btn w-full text-left font-semibold bg-amber-200 p-3 rounded">¿El despacho a domicilio tiene costo?</button> 
+    <div class="faq-content hidden p-3 text-gray-700 bg-amber-100 rounded">El despacho es GRATIS para las comunas de Talagante, Isla Maipo, Peñaflor, Padre Hurtado y el Monte. Otras comunas será gratis por compras > a $30.000</div> 
+    <button class="faq-btn w-full text-left font-semibold bg-amber-200 p-3 rounded">¿Que medios de pago tiene?</button> 
+    <div class="faq-content hidden p-3 text-gray-700 bg-amber-100 rounded">Por ahora aceptamos transferencias electronicas y efectivo (Estamos cambiando el proveedor de tarjetas para pronto infotrmarselos).</div>
+    <button class="faq-btn w-full text-left font-semibold bg-amber-200 p-3 rounded">¿Puede hacer facturas?</button> 
+    <div class="faq-content hidden p-3 text-gray-700 bg-amber-100 rounded">Por supuesto, si usted me lo indica, podemos hacerle llegar una factura</div> 
   </div> 
 </section>
 
