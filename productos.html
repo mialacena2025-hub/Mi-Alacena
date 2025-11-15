@@ -1879,7 +1879,7 @@
   <ul id="cart-items" class="mb-2"></ul>
   <p class="font-semibold">Total: $<span id="cart-total">0</span></p>
   <button id="checkout" class="mt-2 w-full bg-green-500 text-white py-2 rounded-full hover:bg-green-600 transition">
-Confirmar compra
+    Confirmar compra
   </button>
   <button id="close-cart" class="mt-1 w-full bg-red-500 text-white py-2 rounded-full hover:bg-red-600 transition">
     Cerrar
@@ -1891,6 +1891,24 @@ Confirmar compra
   🛒 Ver carrito
 </button>
 
+<!-- Pantalla de resumen -->
+<div id="resumen" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
+  <div class="bg-white w-11/12 md:w-2/3 lg:w-1/2 p-6 rounded-xl shadow-xl overflow-y-auto max-h-[90vh]">
+    <h2 class="text-2xl font-bold text-amber-600 mb-4">Resumen de tu pedido 🛒</h2>
+    <ul id="resumen-items" class="mb-4"></ul>
+    <p class="font-semibold text-lg mb-6">Total: $<span id="resumen-total">0</span></p>
+    <div class="flex justify-between gap-4">
+      <button id="cancelar-resumen" class="w-1/2 bg-red-500 text-white py-2 rounded-full hover:bg-red-600 transition">
+        Cancelar
+      </button>
+      <button id="confirmo-pedido" class="w-1/2 bg-green-500 text-white py-2 rounded-full hover:bg-green-600 transition">
+        Confirmo pedido ✅
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Script del carrito y resumen -->
 <script>
   const cart = [];
   const cartItemsEl = document.getElementById('cart-items');
@@ -1909,11 +1927,12 @@ Confirmar compra
   openCartBtn.addEventListener('click', () => cartContainer.classList.remove('hidden'));
   closeCartBtn.addEventListener('click', () => cartContainer.classList.add('hidden'));
 
-  // Agregar productos
+  // Agregar productos desde botones
   document.querySelectorAll('.add-to-cart').forEach(btn => {
     btn.addEventListener('click', () => {
       const name = btn.dataset.name;
       const price = parseInt(btn.dataset.price);
+
       const existing = cart.find(p => p.name === name);
       if (existing) {
         existing.qty++;
@@ -1935,7 +1954,7 @@ Confirmar compra
       li.innerHTML = `
         <span>${item.name} x${item.qty}</span>
         <span>
-          $${item.price}
+          $${item.price.toLocaleString()}
           <button data-index="${index}" class="text-green-500 font-bold px-1">+</button>
           <button data-index="${index}" class="text-red-500 font-bold px-1">-</button>
           <button data-index="${index}" class="text-gray-700 font-bold px-1">✖</button>
@@ -1945,24 +1964,15 @@ Confirmar compra
     });
     cartTotalEl.innerText = total.toLocaleString();
 
-    // Botones cantidad/eliminar
     cartItemsEl.querySelectorAll('button').forEach(button => {
       const index = button.dataset.index;
-      if (button.innerText === '+') {
-        button.addEventListener('click', () => { cart[index].qty++; renderCart(); });
-      } else if (button.innerText === '-') {
-        button.addEventListener('click', () => { 
-          cart[index].qty--; 
-          if (cart[index].qty <= 0) cart.splice(index,1);
-          renderCart(); 
-        });
-      } else if (button.innerText === '✖') {
-        button.addEventListener('click', () => { cart.splice(index,1); renderCart(); });
-      }
+      if(button.innerText === '+') button.addEventListener('click', () => { cart[index].qty++; renderCart(); });
+      else if(button.innerText === '-') button.addEventListener('click', () => { cart[index].qty--; if(cart[index].qty<=0) cart.splice(index,1); renderCart(); });
+      else if(button.innerText === '✖') button.addEventListener('click', () => { cart.splice(index,1); renderCart(); });
     });
   }
 
-  // Botón "Confirmar compra" -> abrir resumen
+  // Checkout → abrir resumen
   document.getElementById('checkout').addEventListener('click', () => {
     if(cart.length === 0) return alert('Tu carrito está vacío');
     cartContainer.classList.add('hidden');
@@ -1981,15 +1991,13 @@ Confirmar compra
   // Cancelar resumen
   cancelarResumen.addEventListener('click', () => resumen.classList.add('hidden'));
 
-  // Confirmar pedido -> enviar WhatsApp
+  // Confirmar pedido → WhatsApp
   confirmoPedido.addEventListener('click', () => {
     let mensaje = 'CONFIRMO PEDIDO%0A';
-    cart.forEach(item => {
-      mensaje += `${item.name} x${item.qty} - $${item.price.toLocaleString()}%0A`;
-    });
-    mensaje += `Total: $${cart.reduce((acc, i) => acc + i.price*i.qty,0).toLocaleString()}`;
+    cart.forEach(item => { mensaje += `${item.name} x${item.qty} - $${item.price.toLocaleString()}%0A`; });
+    mensaje += `Total: $${cart.reduce((acc,i)=>acc+i.price*i.qty,0).toLocaleString()}`;
     const url = `https://wa.me/56966751059?text=${mensaje}`;
-    window.open(url, '_blank');
+    window.open(url,'_blank');
   });
 </script>
 
