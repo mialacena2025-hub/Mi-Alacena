@@ -380,7 +380,54 @@
   </div>
 </div>
 
-<!-- Script del carrito y resumen -->
+<!-- Sección Productos Destacados -->
+<section id="productos-destacados" class="mb-16" style="scroll-margin-top:120px;">
+  <h2 class="text-3xl font-bold text-amber-600 mb-6 text-center">Productos Destacados</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+    <!-- Producto 1 -->
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transition duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow">
+      <img src="images/destacados/destacado1.jpg" alt="Caramelos Werthers" class="w-48 h-48 object-cover rounded mb-3">
+      <h3 class="text-lg font-semibold">Caramelos de leche Werthers</h3>
+      <p class="text-gray-600">$1.000</p>
+      <button
+  class="bg-amber-600 text-white px-3 py-1 rounded-full shadow hover:scale-105 transition add-to-cart"
+  data-name="Caramelos Werthers"
+  data-price="1000">
+  🛒 Agregar al carrito
+  </button>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transition duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow">
+      <img src="images/destacados/destacado2.jpg" alt="Endulzante Eritritol Bio" class="w-48 h-48 object-cover rounded mb-3">
+      <h3 class="text-lg font-semibold">Endulzante Eritritol Bio</h3>
+      <p class="text-gray-600">$5.000</p>
+      <button
+  class="bg-amber-600 text-white px-3 py-1 rounded-full shadow hover:scale-105 transition add-to-cart"
+  data-name="Endulzante Eritritol Bio"
+  data-price="5000">
+  🛒 Agregar al carrito
+  </button>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transition duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow">
+      <img src="images/destacados/destacado3.jpg" alt="Galletas para perro Human Grade" class="w-48 h-48 object-cover rounded mb-3">
+      <h3 class="text-lg font-semibold">Galletas para perro Human Grade</h3>
+      <p class="text-gray-600">$1.000</p>
+      <button
+  class="bg-amber-600 text-white px-3 py-1 rounded-full shadow hover:scale-105 transition add-to-cart"
+  data-name="Galletas para perro Human Grade"
+  data-price="1000">
+  🛒 Agregar al carrito
+  </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- Script del carrito y resumen (igual que en productos.html) -->
 <script>
   const cart = [];
   const cartItemsEl = document.getElementById('cart-items');
@@ -399,18 +446,14 @@
   openCartBtn.addEventListener('click', () => cartContainer.classList.remove('hidden'));
   closeCartBtn.addEventListener('click', () => cartContainer.classList.add('hidden'));
 
-  // Agregar productos desde botones
+  // Agregar productos
   document.querySelectorAll('.add-to-cart').forEach(btn => {
     btn.addEventListener('click', () => {
       const name = btn.dataset.name;
       const price = parseInt(btn.dataset.price);
-
       const existing = cart.find(p => p.name === name);
-      if (existing) {
-        existing.qty++;
-      } else {
-        cart.push({name, price, qty: 1});
-      }
+      if (existing) existing.qty++;
+      else cart.push({name, price, qty:1});
       renderCart();
     });
   });
@@ -419,8 +462,8 @@
   function renderCart() {
     cartItemsEl.innerHTML = '';
     let total = 0;
-    cart.forEach((item, index) => {
-      total += item.price * item.qty;
+    cart.forEach((item,index) => {
+      total += item.price*item.qty;
       const li = document.createElement('li');
       li.classList.add('flex','justify-between','items-center','mb-1');
       li.innerHTML = `
@@ -436,39 +479,39 @@
     });
     cartTotalEl.innerText = total.toLocaleString();
 
+    // Funcionalidad botones
     cartItemsEl.querySelectorAll('button').forEach(button => {
       const index = button.dataset.index;
-      if(button.innerText === '+') button.addEventListener('click', () => { cart[index].qty++; renderCart(); });
-      else if(button.innerText === '-') button.addEventListener('click', () => { cart[index].qty--; if(cart[index].qty<=0) cart.splice(index,1); renderCart(); });
-      else if(button.innerText === '✖') button.addEventListener('click', () => { cart.splice(index,1); renderCart(); });
+      if(button.innerText==='+') button.addEventListener('click',()=>{cart[index].qty++;renderCart();});
+      else if(button.innerText==='-') button.addEventListener('click',()=>{cart[index].qty--;if(cart[index].qty<=0) cart.splice(index,1);renderCart();});
+      else if(button.innerText==='✖') button.addEventListener('click',()=>{cart.splice(index,1);renderCart();});
     });
   }
 
-  // Checkout → abrir resumen
-  document.getElementById('checkout').addEventListener('click', () => {
-    if(cart.length === 0) return alert('Tu carrito está vacío');
+  // Checkout → resumen
+  document.getElementById('checkout').addEventListener('click',()=>{
+    if(cart.length===0) return alert('Tu carrito está vacío');
     cartContainer.classList.add('hidden');
-    resumenItems.innerHTML = '';
-    let total = 0;
-    cart.forEach(item => {
-      total += item.price * item.qty;
-      const li = document.createElement('li');
-      li.textContent = `${item.name} x${item.qty} - $${item.price.toLocaleString()}`;
+    resumenItems.innerHTML='';
+    let total=0;
+    cart.forEach(item=>{total+=item.price*item.qty;
+      const li=document.createElement('li');
+      li.textContent=`${item.name} x${item.qty} - $${item.price.toLocaleString()}`;
       resumenItems.appendChild(li);
     });
-    resumenTotal.innerText = total.toLocaleString();
+    resumenTotal.innerText=total.toLocaleString();
     resumen.classList.remove('hidden');
   });
 
   // Cancelar resumen
-  cancelarResumen.addEventListener('click', () => resumen.classList.add('hidden'));
+  cancelarResumen.addEventListener('click',()=>resumen.classList.add('hidden'));
 
   // Confirmar pedido → WhatsApp
-  confirmoPedido.addEventListener('click', () => {
-    let mensaje = 'CONFIRMO PEDIDO%0A';
-    cart.forEach(item => { mensaje += `${item.name} x${item.qty} - $${item.price.toLocaleString()}%0A`; });
-    mensaje += `Total: $${cart.reduce((acc,i)=>acc+i.price*i.qty,0).toLocaleString()}`;
-    const url = `https://wa.me/56966751059?text=${mensaje}`;
+  confirmoPedido.addEventListener('click',()=>{
+    let mensaje='CONFIRMO PEDIDO%0A';
+    cart.forEach(item=>{mensaje+=`${item.name} x${item.qty} - $${item.price.toLocaleString()}%0A`;});
+    mensaje+=`Total: $${cart.reduce((acc,i)=>acc+i.price*i.qty,0).toLocaleString()}`;
+    const url=`https://wa.me/56966751059?text=${mensaje}`;
     window.open(url,'_blank');
   });
 </script>
