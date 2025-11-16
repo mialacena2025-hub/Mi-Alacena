@@ -78,65 +78,7 @@
   </a>
 </section>
 
-<!-- Productos destacados -->
-<section id="productos" class="mt-20">
-  <h2 class="text-3xl font-bold text-amber-600 mb-8 text-center fade-in 
-             bg-clip-text text-transparent bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 gradient-animate">
-    Productos Destacados 🛒
-  </h2>
-
-  <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 justify-items-center">
-
-    <!-- Producto 1 -->
-<div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transition 
-            duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow">
-  <img src="images/destacados/destacado1.jpg" alt="Caramelos Hard Candies Roll" class="w-48 h-48 object-cover rounded mb-3">
-  <h3 class="text-lg font-semibold">Caramelos de leche - Werthers original</h3>
-  <p class="text-gray-600">$1.000</p>
-  <button 
-    class="bg-gradient-to-r from-amber-500 to-orange-600 text-white 
-    px-3 py-1 rounded-full shadow hover:scale-105 transition add-to-cart"
-    data-name="Caramelos Hard Candies Roll"
-    data-price="1000"
-  >
-    🛒 Agregar al carrito
-    </button>
-    </div>
-
-   <!-- Producto 2 -->
-<div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transition 
-            duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow">
-  <img src="images/destacados/destacado2.jpg" alt="Edulcorante natural Eritritol" class="w-48 h-48 object-cover rounded mb-3">
-  <h3 class="text-lg font-semibold">Endulzante natural ERITRITOL</h3>
-  <p class="text-gray-600">$5.000</p>
-<button 
-    class="bg-gradient-to-r from-amber-500 to-orange-600 text-white 
-    px-3 py-1 rounded-full shadow hover:scale-105 transition add-to-cart"
-    data-name="Edulcorante natural Eritritol"
-    data-price="5000"
-  >
-    🛒 Agregar al carrito
-    </button>
-    </div>
-
-    <!-- Producto 3 -->
-<div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center transition 
-            duration-500 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl fade-in hover-glow">
-  <img src="images/destacados/destacado3.jpg" alt="Galletas perro - Creamy creme" class="w-48 h-48 object-cover rounded mb-3">
-  <h3 class="text-lg font-semibold">Galletas para perro - Human Grade </h3>
-  <p class="text-gray-600">$1.000</p>
-<button 
-    class="bg-gradient-to-r from-amber-500 to-orange-600 text-white 
-    px-3 py-1 rounded-full shadow hover:scale-105 transition add-to-cart"
-    data-name="Galletas perro - Creamy creme"
-    data-price="1000"
-  >
-    🛒 Agregar al carrito
-    </button>
-    </div>
-</section>
-
-<!-- Testimonios --> 
+  <!-- Testimonios --> 
 <section class="mt-20 bg-amber-50 rounded-2xl shadow p-8"> 
   <h2 class="text-3xl font-bold text-amber-600 mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600 fade-in">
     Lo que dicen nuestros clientes 🗣️
@@ -185,11 +127,12 @@
   </h2>
 
   <!-- Imagen previa principal -->
-  <div class="relative rounded-2xl overflow-hidden shadow-lg mb-6">
-    <img 
-      src="images/varios/varios3.jpg" 
-      alt="Promociones especiales" 
-      class="w-3/4 h-40 mx-auto object-cover">
+<div class="relative rounded-2xl overflow-hidden shadow-lg mb-6">
+  <img 
+    src="images/varios/varios3.jpg" 
+    alt="Promociones especiales" 
+    class="w-1/2 h-32 mx-auto object-cover rounded-xl">
+</div>
     
     <!-- Botón visible siempre sobre la imagen -->
     <a href="#promos-categorias" 
@@ -207,20 +150,36 @@
   <div id="promos-categorias" class="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
     
     <!-- Ejemplo de categoría -->
-    <div class="bg-white rounded-xl shadow p-5 hover:shadow-lg transition cursor-pointer">
-      <h3 class="text-lg font-bold text-amber-700 mb-2">Caja de huevos primera (Color o blanco)</h3>
-      <p class="text-gray-600 text-sm">$35.000 - Valor x caja de 180 unidades.</p>
-    </div>
+    <div class="bg-gray-700 rounded-xl shadow p-5 
+            hover:bg-gray-600 
+            hover:shadow-xl 
+            hover:-translate-y-1 
+            transition-all duration-300 cursor-pointer transform">
+  <h3 class="text-lg font-bold text-white mb-2">Caja con 180 huevos primera</h3>
+  <p class="text-gray-200 text-sm">$35.000 x caja (La caja trae 6 bandejas de 30 huevos).</p>
+</div>
+
+
+    <div class="bg-gray-700 rounded-xl shadow p-5 
+            hover:bg-gray-600 
+            hover:shadow-xl 
+            hover:-translate-y-1 
+            transition-all duration-300 cursor-pointer transform">
+  <h3 class="text-lg font-bold text-white mb-2">Caja Detergente liquido DAPER</h3>
+  <p class="text-gray-200 text-sm">$20.000 x caja (La caja trae 5 DAPPER 3Lt).</p>
+</div>
 
     <div class="bg-white rounded-xl shadow p-5 hover:shadow-lg transition cursor-pointer">
-      <h3 class="text-lg font-bold text-amber-700 mb-2">Caja detergente concentrado DAPPER 3Lt</h3>
-      <p class="text-gray-600 text-sm">$20.000 - Valor x caja de 5 unidades.</p>
-    </div>
-
-    <div class="bg-white rounded-xl shadow p-5 hover:shadow-lg transition cursor-pointer">
-      <h3 class="text-lg font-bold text-amber-700 mb-2">Caja puré de tomates Baggio </h3>
-      <p class="text-gray-600 text-sm">$13.990 - Valor x caja de 12 unidades.</p>
-    </div>
+      <h3 class="text-lg font-bold text-amber-700 mb-2">Caja con pure de tomates Baggio </h3>
+      <p class="text-gray-600 text-sm">$13.990 x caja (La caja trae 12 Salsas de tomates Baggio).</p>
+    </div><div class="bg-gray-700 rounded-xl shadow p-5 
+            hover:bg-gray-600 
+            hover:shadow-xl 
+            hover:-translate-y-1 
+            transition-all duration-300 cursor-pointer transform">
+  <h3 class="text-lg font-bold text-white mb-2">Caja de huevos primera (Color o blanco)</h3>
+  <p class="text-gray-200 text-sm">$35.000 - Valor x caja de 180 unidades.</p>
+</div>
 
   </div>
 </section>
@@ -364,9 +323,10 @@
 </button>
 
 <!-- Pantalla de resumen -->
-<div id="resumen" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
-  <div class="bg-white w-11/12 md:w-2/3 lg:w-1/2 p-6 rounded-xl shadow-xl overflow-y-auto max-h-[90vh]">
-    <h2 class="text-2xl font-bold text-amber-600 mb-4">Resumen de tu pedido 🛒</h2>
+<div id="resumen" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center transition-opacity duration-500">
+  <div id="resumen-cuadro" class="bg-gray-700 text-white w-11/12 md:w-2/3 lg:w-1/2 p-6 rounded-xl shadow-xl overflow-y-auto max-h-[90vh]
+                transform transition-transform duration-500 scale-90 opacity-0 hover:scale-105 hover:-rotate-2">
+    <h2 class="text-2xl font-bold text-amber-400 mb-4">Resumen de tu pedido 🛒</h2>
     <ul id="resumen-items" class="mb-4"></ul>
     <p class="font-semibold text-lg mb-6">Total: $<span id="resumen-total">0</span></p>
     <div class="flex justify-between gap-4">
@@ -379,6 +339,35 @@
     </div>
   </div>
 </div>
+
+<script>
+  const resumen = document.getElementById('resumen');
+  const resumenCuadro = document.getElementById('resumen-cuadro');
+  const cancelarResumen = document.getElementById('cancelar-resumen');
+
+  // Función para mostrar resumen con animación
+  function mostrarResumen() {
+    resumen.classList.remove('hidden');
+    setTimeout(() => {
+      resumenCuadro.classList.remove('scale-90', 'opacity-0');
+      resumenCuadro.classList.add('scale-100', 'opacity-100');
+    }, 50); // pequeño delay para animación
+  }
+
+  // Función para cerrar resumen con animación
+  function cerrarResumen() {
+    resumenCuadro.classList.remove('scale-100', 'opacity-100');
+    resumenCuadro.classList.add('scale-90', 'opacity-0');
+    setTimeout(() => {
+      resumen.classList.add('hidden');
+    }, 300); // esperar a que termine la animación
+  }
+
+  cancelarResumen.addEventListener('click', cerrarResumen);
+
+  // Ejemplo de uso: abrir el resumen cuando se confirma compra
+  // mostrarResumen();
+</script>
 
 <!-- Sección Productos Destacados -->
 <section id="productos-destacados" class="mb-16" style="scroll-margin-top:120px;">
