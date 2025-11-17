@@ -18,11 +18,10 @@
       ☰
     </button>
 
-    <!-- Navegación para tablet y escritorio --> 
     <!-- Navegación para tablet y escritorio -->
 <nav id="menu" class="hidden md:flex space-x-6">
   <a href="#inicio" class="text-gray-700 hover:text-amber-600 font-semibold transition duration-300 ease-in-out">
-    Inicio
+    Home
   </a>
   <a href="productos.html" class="relative text-gray-700 hover:text-amber-600 font-semibold transition duration-300 ease-in-out group">
     Productos
@@ -32,14 +31,15 @@
     Contacto
   </a>
 </nav>
+
   </div>
 
   <!-- Menú desplegable móvil -->
-  <div id="mobile-menu" class="hidden md:hidden bg-amber-500 flex flex-col text-center space-y-2 py-3">
-    <a href="#" class="hover:bg-amber-600 py-2">Inicio</a>
-    <a href="#productos" class="hover:bg-amber-600 py-2">Productos</a>
-    <a href="#contacto" class="hover:bg-amber-600 py-2">Contacto</a>
-  </div>
+<div id="mobile-menu" class="hidden md:hidden bg-amber-500 flex flex-col text-center space-y-2 py-3">
+  <a href="#" class="hover:bg-amber-600 py-2">Home</a>
+  <a href="#productos" class="hover:bg-amber-600 py-2">Productos</a>
+  <a href="#contacto" class="hover:bg-amber-600 py-2">Contacto</a>
+</div>
 </header>
 
 <!-- Botón Back to Top -->
@@ -141,29 +141,7 @@
     </a>
   </div>
 
-    <!-- Categorías de Banner (se muestran al entrar) -->
-  <div id="slider-productos" class="relative w-full max-w-md mx-auto overflow-hidden">
-  
-  <div class="slider-item absolute inset-0 transition-opacity duration-1000 opacity-100 bg-gray-700 rounded-xl shadow p-5 cursor-pointer">
-    <h3 class="text-lg font-bold text-white mb-2">Caja con salas de tomates Baggio</h3>
-    <p class="text-gray-200 text-sm">$13.990 x caja (La caja trae 12 salas).</p>
-  </div>
-
-  <div class="slider-item absolute inset-0 transition-opacity duration-1000 opacity-0 bg-gray-700 rounded-xl shadow p-5 cursor-pointer">
-    <h3 class="text-lg font-bold text-white mb-2">Caja detergente concentrado DAPPER 3Lt</h3>
-    <p class="text-gray-200 text-sm">$20.000 x caja (La caja trae 5 unidades).</p>
-  </div>
-
-  <div class="slider-item absolute inset-0 transition-opacity duration-1000 opacity-0 bg-gray-700 rounded-xl shadow p-5 cursor-pointer">
-    <h3 class="text-lg font-bold text-white mb-2">Caja de huevos primera (Color o blanco)</h3>
-    <p class="text-gray-200 text-sm">$35.000 x caja (La caja trae 180 unidades).</p>
-  </div>
-
-</div>
-
-</section>
-
-<!-- FAQ --> <section class="mt-20 bg-amber-50 rounded-2xl shadow p-8 fade-in"> 
+    <!-- FAQ --> <section class="mt-20 bg-amber-50 rounded-2xl shadow p-8 fade-in"> 
   <h2 class="text-3xl font-bold text-amber-600 mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600">Preguntas Frecuentes ❓</h2> 
   <div class="max-w-3xl mx-auto text-left space-y-4"> 
     <button class="faq-btn w-full text-left font-semibold bg-amber-200 p-3 rounded">¿Cómo hago un pedido?</button> 
@@ -240,18 +218,7 @@
     });
   }
 
-  // 🔹 Botón "Back to Top"
-  const backToTop = document.getElementById('back-to-top');
-  if (backToTop) {
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('opacity-0', window.scrollY <= 300);
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  // 🔹 FAQ desplegable
+    // 🔹 FAQ desplegable
   document.querySelectorAll('.faq-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const content = btn.nextElementSibling;
@@ -281,71 +248,6 @@
     });
   }
   
-</script>
-
-<!-- Carrito flotante -->
-<div id="cart" class="fixed bottom-6 right-6 bg-white shadow-lg rounded-lg p-4 w-80 max-h-96 overflow-y-auto hidden z-50">
-  <h3 class="font-bold text-lg mb-2">Carrito 🛒</h3>
-  <ul id="cart-items" class="mb-2"></ul>
-  <p class="font-semibold">Total: $<span id="cart-total">0</span></p>
-  <button id="checkout" class="mt-2 w-full bg-green-500 text-white py-2 rounded-full hover:bg-green-600 transition">
-    Confirmar compra
-  </button>
-  <button id="close-cart" class="mt-1 w-full bg-red-500 text-white py-2 rounded-full hover:bg-red-600 transition">
-    Cerrar
-  </button>
-</div>
-
-<!-- Botón flotante para abrir carrito -->
-<button id="open-cart" class="fixed bottom-6 right-6 bg-amber-500 text-white px-4 py-2 rounded-full shadow-lg hover:scale-105 transition z-50">
-  🛒 Ver carrito
-</button>
-
-<!-- Pantalla de resumen -->
-<div id="resumen" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center transition-opacity duration-500">
-  <div id="resumen-cuadro" class="bg-gray-700 text-white w-11/12 md:w-2/3 lg:w-1/2 p-6 rounded-xl shadow-xl overflow-y-auto max-h-[90vh]
-                transform transition-transform duration-500 scale-90 opacity-0 hover:scale-105 hover:-rotate-2">
-    <h2 class="text-2xl font-bold text-amber-400 mb-4">Resumen de tu pedido 🛒</h2>
-    <ul id="resumen-items" class="mb-4"></ul>
-    <p class="font-semibold text-lg mb-6">Total: $<span id="resumen-total">0</span></p>
-    <div class="flex justify-between gap-4">
-      <button id="cancelar-resumen" class="w-1/2 bg-red-500 text-white py-2 rounded-full hover:bg-red-600 transition">
-        Cancelar
-      </button>
-      <button id="confirmo-pedido" class="w-1/2 bg-green-500 text-white py-2 rounded-full hover:bg-green-600 transition">
-        Confirmo pedido ✅
-      </button>
-    </div>
-  </div>
-</div>
-
-<script>
-  const resumen = document.getElementById('resumen');
-  const resumenCuadro = document.getElementById('resumen-cuadro');
-  const cancelarResumen = document.getElementById('cancelar-resumen');
-
-  // Función para mostrar resumen con animación
-  function mostrarResumen() {
-    resumen.classList.remove('hidden');
-    setTimeout(() => {
-      resumenCuadro.classList.remove('scale-90', 'opacity-0');
-      resumenCuadro.classList.add('scale-100', 'opacity-100');
-    }, 50); // pequeño delay para animación
-  }
-
-  // Función para cerrar resumen con animación
-  function cerrarResumen() {
-    resumenCuadro.classList.remove('scale-100', 'opacity-100');
-    resumenCuadro.classList.add('scale-90', 'opacity-0');
-    setTimeout(() => {
-      resumen.classList.add('hidden');
-    }, 300); // esperar a que termine la animación
-  }
-
-  cancelarResumen.addEventListener('click', cerrarResumen);
-
-  // Ejemplo de uso: abrir el resumen cuando se confirma compra
-  // mostrarResumen();
 </script>
 
 <!-- Sección Productos Destacados -->
@@ -394,95 +296,6 @@
 
   </div>
 </section>
-
-<!-- Script del carrito y resumen (igual que en productos.html) -->
-<script>
-  const cart = [];
-  const cartItemsEl = document.getElementById('cart-items');
-  const cartTotalEl = document.getElementById('cart-total');
-  const cartContainer = document.getElementById('cart');
-  const openCartBtn = document.getElementById('open-cart');
-  const closeCartBtn = document.getElementById('close-cart');
-
-  const resumen = document.getElementById('resumen');
-  const resumenItems = document.getElementById('resumen-items');
-  const resumenTotal = document.getElementById('resumen-total');
-  const cancelarResumen = document.getElementById('cancelar-resumen');
-  const confirmoPedido = document.getElementById('confirmo-pedido');
-
-  // Abrir/cerrar carrito
-  openCartBtn.addEventListener('click', () => cartContainer.classList.remove('hidden'));
-  closeCartBtn.addEventListener('click', () => cartContainer.classList.add('hidden'));
-
-  // Agregar productos
-  document.querySelectorAll('.add-to-cart').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const name = btn.dataset.name;
-      const price = parseInt(btn.dataset.price);
-      const existing = cart.find(p => p.name === name);
-      if (existing) existing.qty++;
-      else cart.push({name, price, qty:1});
-      renderCart();
-    });
-  });
-
-  // Renderizar carrito
-  function renderCart() {
-    cartItemsEl.innerHTML = '';
-    let total = 0;
-    cart.forEach((item,index) => {
-      total += item.price*item.qty;
-      const li = document.createElement('li');
-      li.classList.add('flex','justify-between','items-center','mb-1');
-      li.innerHTML = `
-        <span>${item.name} x${item.qty}</span>
-        <span>
-          $${item.price.toLocaleString()}
-          <button data-index="${index}" class="text-green-500 font-bold px-1">+</button>
-          <button data-index="${index}" class="text-red-500 font-bold px-1">-</button>
-          <button data-index="${index}" class="text-gray-700 font-bold px-1">✖</button>
-        </span>
-      `;
-      cartItemsEl.appendChild(li);
-    });
-    cartTotalEl.innerText = total.toLocaleString();
-
-    // Funcionalidad botones
-    cartItemsEl.querySelectorAll('button').forEach(button => {
-      const index = button.dataset.index;
-      if(button.innerText==='+') button.addEventListener('click',()=>{cart[index].qty++;renderCart();});
-      else if(button.innerText==='-') button.addEventListener('click',()=>{cart[index].qty--;if(cart[index].qty<=0) cart.splice(index,1);renderCart();});
-      else if(button.innerText==='✖') button.addEventListener('click',()=>{cart.splice(index,1);renderCart();});
-    });
-  }
-
-  // Checkout → resumen
-  document.getElementById('checkout').addEventListener('click',()=>{
-    if(cart.length===0) return alert('Tu carrito está vacío');
-    cartContainer.classList.add('hidden');
-    resumenItems.innerHTML='';
-    let total=0;
-    cart.forEach(item=>{total+=item.price*item.qty;
-      const li=document.createElement('li');
-      li.textContent=`${item.name} x${item.qty} - $${item.price.toLocaleString()}`;
-      resumenItems.appendChild(li);
-    });
-    resumenTotal.innerText=total.toLocaleString();
-    resumen.classList.remove('hidden');
-  });
-
-  // Cancelar resumen
-  cancelarResumen.addEventListener('click',()=>resumen.classList.add('hidden'));
-
-  // Confirmar pedido → WhatsApp
-  confirmoPedido.addEventListener('click',()=>{
-    let mensaje='CONFIRMO PEDIDO%0A';
-    cart.forEach(item=>{mensaje+=`${item.name} x${item.qty} - $${item.price.toLocaleString()}%0A`;});
-    mensaje+=`Total: $${cart.reduce((acc,i)=>acc+i.price*i.qty,0).toLocaleString()}`;
-    const url=`https://wa.me/56966751059?text=${mensaje}`;
-    window.open(url,'_blank');
-  });
-</script>
 
 </body>
 </html>  
