@@ -78,37 +78,7 @@
   </a>
 </section>
 
-  <!-- Testimonios --> 
-<section class="mt-20 bg-amber-50 rounded-2xl shadow p-8"> 
-  <h2 class="text-3xl font-bold text-amber-600 mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600 fade-in">
-    Lo que dicen nuestros clientes 🗣️
-  </h2> 
-
-  <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3"> 
-    <div class="bg-white p-6 rounded-xl shadow-md fade-in">
-      <p class="text-gray-700 mb-4">“Los productos son frescos y deliciosos. ¡Siempre vuelvo por más!”</p>
-      <div class="flex items-center">
-        <img src="https://via.placeholder.com/50" alt="Cliente 1" class="rounded-full mr-3">
-        <span class="font-semibold">Ana P.</span>
-      </div>
-    </div> 
-    <div class="bg-white p-6 rounded-xl shadow-md fade-in">
-      <p class="text-gray-700 mb-4">“Excelente atención y entrega rápida. Muy recomendable.”</p>
-      <div class="flex items-center">
-        <img src="https://via.placeholder.com/50" alt="Cliente 2" class="rounded-full mr-3">
-        <span class="font-semibold">Carlos R.</span>
-      </div>
-    </div> 
-    <div class="bg-white p-6 rounded-xl shadow-md fade-in">
-      <p class="text-gray-700 mb-4">“Mi familia disfruta cada producto. ¡Saben a hogar!”</p>
-      <div class="flex items-center">
-        <img src="https://via.placeholder.com/50" alt="Cliente 3" class="rounded-full mr-3">
-        <span class="font-semibold">Lucía M.</span>
-      </div>
-    </div> 
-  </div>
-
-      <!-- Nuestra Historia -->
+       <!-- Nuestra Historia -->
 <section class="mt-20 bg-white rounded-2xl shadow p-8 fade-in opacity-0 transition-opacity duration-700 ease-out">
   <h2 class="text-3xl font-bold text-amber-600 mb-6">Nuestra historia 🏡</h2>
   <div class="flex flex-col md:flex-row items-center justify-center gap-8">
@@ -196,7 +166,7 @@
   function actualizarCarrito() {
     cartItems.innerHTML = '';
     let total = 0;
-    carrito.forEach((item, index) => {
+    carrito.forEach(item => {
       total += item.precio * item.cantidad;
       const li = document.createElement('li');
       li.textContent = `${item.nombre} x${item.cantidad} - $${item.precio * item.cantidad}`;
@@ -217,25 +187,14 @@
     resumenTotal.textContent = total;
   }
 
-  // --- Botones carrito ---
-  openCartBtn.addEventListener('click', () => {
-    cart.classList.toggle('hidden');
-  });
-
-  closeCartBtn.addEventListener('click', () => {
-    cart.classList.add('hidden');
-  });
-
-  // --- Botones resumen ---
+  // --- Event listeners ---
+  openCartBtn.addEventListener('click', () => cart.classList.toggle('hidden'));
+  closeCartBtn.addEventListener('click', () => cart.classList.add('hidden'));
   document.getElementById('checkout')?.addEventListener('click', () => {
     actualizarResumen();
     resumen.classList.remove('hidden');
   });
-
-  cancelarResumenBtn.addEventListener('click', () => {
-    resumen.classList.add('hidden');
-  });
-
+  cancelarResumenBtn.addEventListener('click', () => resumen.classList.add('hidden'));
   confirmoPedidoBtn.addEventListener('click', () => {
     alert('Pedido confirmado ✅');
     carrito = [];
@@ -243,21 +202,17 @@
     resumen.classList.add('hidden');
   });
 
-  // --- Función para agregar productos al carrito ---
+  // --- Función para agregar productos ---
   function agregarAlCarrito(producto) {
     const existe = carrito.find(item => item.id === producto.id);
     if (existe) {
       existe.cantidad++;
     } else {
-      carrito.push({ ...producto, cantidad: 1 });
+      carrito.push({...producto, cantidad:1});
     }
     actualizarCarrito();
   }
 </script>
-
-
-
-
 
   <!-- Contenedor de productos -->
   <div id="carrusel" class="flex overflow-x-hidden gap-6">
@@ -273,7 +228,6 @@
     🛒 Agregar
   </button>
   </div>
-
 
     <!-- Producto 2 -->
     <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
@@ -366,7 +320,37 @@ setInterval(() => {
   }
 }, 4000);
 </script>
-    
+  
+ <!-- Testimonios --> 
+<section class="mt-20 bg-amber-50 rounded-2xl shadow p-8"> 
+  <h2 class="text-3xl font-bold text-amber-600 mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600 fade-in">
+    Lo que dicen nuestros clientes 🗣️
+  </h2> 
+
+  <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3"> 
+    <div class="bg-white p-6 rounded-xl shadow-md fade-in">
+      <p class="text-gray-700 mb-4">“Los productos son muy variados, siempre llegan en los plazos comprometidos, la atención es muy buena y los precios son atractivos.”</p>
+      <div class="flex items-center">
+        <img src="images/varios/varios4.jpg" alt="Cliente 1" class="rounded-full mr-3">
+        <span class="font-semibold">Rodrigo - Talagante.</span>
+      </div>
+    </div> 
+    <div class="bg-white p-6 rounded-xl shadow-md fade-in">
+      <p class="text-gray-700 mb-4">“100% recomendado, súper buenos productos, amo que tengan sin gluten  y de buena calidad,  que mejor directo a la casa 🤩🤩.”</p>
+      <div class="flex items-center">
+        <img src="images/varios/varios4.jpg" alt="Cliente 2" class="rounded-full mr-3">
+        <span class="font-semibold">Bea - Isla de Maipo.</span>
+      </div>
+    </div> 
+    <div class="bg-white p-6 rounded-xl shadow-md fade-in">
+      <p class="text-gray-700 mb-4">“Lo recomiendo mucho, productos de calidad y a muy buen precio, responsables en la entrega”.</p>
+      <div class="flex items-center">
+        <img src="images/varios/varios4.jpg" alt="Cliente 3" class="rounded-full mr-3">
+        <span class="font-semibold">Marcela Rivera - Condominio Ladislao</span>
+      </div>
+    </div> 
+  </div>
+
   <!-- FAQ --> <section class="mt-20 bg-amber-50 rounded-2xl shadow p-8 fade-in"> 
   <h2 class="text-3xl font-bold text-amber-600 mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600">Preguntas Frecuentes ❓</h2> 
   <div class="max-w-3xl mx-auto text-left space-y-4"> 
