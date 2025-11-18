@@ -101,55 +101,66 @@
 </section>
 
 <!-- Carrusel automático Imperdibles -->
-<div class="mt-8 w-full max-w-6xl mx-auto">
+<div class="mt-8 w-full max-w-4xl mx-auto relative overflow-hidden">
   <h3 class="text-2xl font-bold mb-4 text-center">Éxito de ventas</h3>
 
-  <!-- Ventana del carrusel -->
-  <div class="overflow-hidden relative">
-
+  <!-- Contenedor visible -->
+  <div class="overflow-hidden">
     <!-- Carrusel -->
-    <div id="carrusel" class="flex gap-6 transition-all duration-500">
+    <div id="carrusel" class="flex transition-transform duration-500 ease-out">
 
       <!-- Producto 1 -->
-      <div class="min-w-[50%] md:min-w-[33%] lg:min-w-[25%] bg-white rounded-xl shadow p-4">
-        <img src="images/destacados/destacado1.jpg" class="w-full h-40 object-cover rounded-lg">
-        <h4 class="font-bold mt-2">Huevos $34.990</h4>
-        <p class="text-sm text-gray-600">Pack 180 huevos primera</p>
+      <div class="w-1/2 px-3">
+        <div class="bg-white rounded-xl shadow p-4">
+          <img src="images/destacados/destacado1.jpg" class="w-full h-40 object-cover rounded-lg">
+          <h4 class="font-bold mt-2">Producto 1 — $9.990</h4>
+          <p class="text-sm text-gray-600">Super ventas</p>
+        </div>
       </div>
 
       <!-- Producto 2 -->
-      <div class="min-w-[50%] md:min-w-[33%] lg:min-w-[25%] bg-white rounded-xl shadow p-4">
-        <img src="images/destacados/destacado2.jpg" class="w-full h-40 object-cover rounded-lg">
-        <h4 class="font-bold mt-2">Caramelos $14.990</h4>
-        <p class="text-sm text-gray-600">Pack 24 unidades</p>
+      <div class="w-1/2 px-3">
+        <div class="bg-white rounded-xl shadow p-4">
+          <img src="images/destacados/destacado2.jpg" class="w-full h-40 object-cover rounded-lg">
+          <h4 class="font-bold mt-2">Producto 2 — $7.990</h4>
+          <p class="text-sm text-gray-600">Muy recomendado</p>
+        </div>
       </div>
 
       <!-- Producto 3 -->
-      <div class="min-w-[50%] md:min-w-[33%] lg:min-w-[25%] bg-white rounded-xl shadow p-4">
-        <img src="images/destacados/destacado3.jpg" class="w-full h-40 object-cover rounded-lg">
-        <h4 class="font-bold mt-2">RicePop Tika $14.990</h4>
-        <p class="text-sm text-gray-600">Pack 5 unidades</p>
+      <div class="w-1/2 px-3">
+        <div class="bg-white rounded-xl shadow p-4">
+          <img src="images/destacados/destacado3.jpg" class="w-full h-40 object-cover rounded-lg">
+          <h4 class="font-bold mt-2">Producto 3 — $12.990</h4>
+          <p class="text-sm text-gray-600">Alta calidad</p>
+        </div>
       </div>
 
       <!-- Producto 4 -->
-      <div class="min-w-[50%] md:min-w-[33%] lg:min-w-[25%] bg-white rounded-xl shadow p-4">
-        <img src="images/destacados/destacado4.jpg" class="w-full h-40 object-cover rounded-lg">
-        <h4 class="font-bold mt-2">Galletas Minions $2.990</h4>
-        <p class="text-sm text-gray-600">Pack 6 unidades</p>
+      <div class="w-1/2 px-3">
+        <div class="bg-white rounded-xl shadow p-4">
+          <img src="images/destacados/destacado4.jpg" class="w-full h-40 object-cover rounded-lg">
+          <h4 class="font-bold mt-2">Producto 4 — $8.990</h4>
+          <p class="text-sm text-gray-600">Muy popular</p>
+        </div>
       </div>
 
       <!-- Producto 5 -->
-      <div class="min-w-[50%] md:min-w-[33%] lg:min-w-[25%] bg-white rounded-xl shadow p-4">
-        <img src="images/destacados/destacado5.jpg" class="w-full h-40 object-cover rounded-lg">
-        <h4 class="font-bold mt-2">Salsa Baggio $1.390</h4>
-        <p class="text-sm text-gray-600">Sin gluten</p>
+      <div class="w-1/2 px-3">
+        <div class="bg-white rounded-xl shadow p-4">
+          <img src="images/destacados/destacado5.jpg" class="w-full h-40 object-cover rounded-lg">
+          <h4 class="font-bold mt-2">Producto 5 — $10.500</h4>
+          <p class="text-sm text-gray-600">Recomendado</p>
+        </div>
       </div>
 
       <!-- Producto 6 -->
-      <div class="min-w-[50%] md:min-w-[33%] lg:min-w-[25%] bg-white rounded-xl shadow p-4">
-        <img src="images/destacados/destacado6.jpg" class="w-full h-40 object-cover rounded-lg">
-        <h4 class="font-bold mt-2">Edulcorante $5.000</h4>
-        <p class="text-sm text-gray-600">El mejor del mercado</p>
+      <div class="w-1/2 px-3">
+        <div class="bg-white rounded-xl shadow p-4">
+          <img src="images/destacados/destacado6.jpg" class="w-full h-40 object-cover rounded-lg">
+          <h4 class="font-bold mt-2">Producto 6 — $5.000</h4>
+          <p class="text-sm text-gray-600">El mejor del mercado</p>
+        </div>
       </div>
 
     </div>
@@ -303,46 +314,21 @@
   }
 </script>
 
-<!-- 🔹 Carrusel automático -->
 <script>
+  // 🔹 Carrusel que mueve 2 productos por vez
   const carrusel = document.getElementById("carrusel");
-  let desplazamiento = 0;
+  const totalItems = carrusel.children.length;
+  let index = 0;
 
   function moverCarrusel() {
-    const item = carrusel.children[0];
-    const itemWidth = item.offsetWidth + 24;
-
-    desplazamiento += itemWidth;
-
-    if (desplazamiento >= carrusel.scrollWidth - carrusel.clientWidth) {
-      desplazamiento = 0;
+    index++;
+    if (index > totalItems - 2) { 
+      index = 0;
     }
-
-    carrusel.scrollTo({
-      left: desplazamiento,
-      behavior: "smooth",
-    });
+    carrusel.style.transform = `translateX(-${index * 50}%)`;
   }
 
   setInterval(moverCarrusel, 3000);
-</script>
-
-<script>
-const carrusel = document.getElementById("carrusel");
-let index = 0;
-
-function avanzarCarrusel() {
-  const itemWidth = carrusel.children[0].offsetWidth + 24;
-  const totalItems = carrusel.children.length;
-  const visibleItems = Math.round(document.querySelector(".overflow-hidden").offsetWidth / itemWidth);
-
-  index++;
-  if (index > totalItems - visibleItems) index = 0;
-
-  carrusel.style.transform = `translateX(-${index * itemWidth}px)`;
-}
-
-setInterval(avanzarCarrusel, 3000);
 </script>
 
 </body>
