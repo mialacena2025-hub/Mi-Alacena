@@ -300,5 +300,32 @@
   
 </script>
 
+<script>
+  const carrusel = document.getElementById('carrusel');
+
+  let position = 0; // desplazamiento en px
+
+  function moverCarrusel() {
+    const cardWidth = 280; // ancho aproximado de cada card (w-64 + gap)
+    const gap = 24;        // gap-6 es 24px
+    const total = cardWidth + gap;
+
+    // Mover 2 productos a la vez
+    position += total * 2;
+
+    // Si alcanza el final, vuelve a empezar
+    if (position >= carrusel.scrollWidth - carrusel.clientWidth) {
+      position = 0;
+    }
+
+    carrusel.scrollTo({
+      left: position,
+      behavior: 'smooth'
+    });
+  }
+
+  setInterval(moverCarrusel, 2500); // mueve cada 2.5 segundos
+</script>
+
 </body>
 </html>  
