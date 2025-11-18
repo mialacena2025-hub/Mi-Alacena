@@ -18,6 +18,33 @@
       ☰
     </button>
 
+    <!-- Menú móvil (solo aparece en celulares) -->
+<nav id="mobile-menu" class="md:hidden hidden flex-col space-y-4 mt-4 bg-white p-4 rounded-lg shadow">
+  <a href="#inicio" class="block text-gray-700 hover:text-amber-600 font-semibold transition">
+    Home
+  </a>
+  <a href="productos.html" class="block text-gray-700 hover:text-amber-600 font-semibold transition">
+    Productos
+  </a>
+  <a href="#contacto" class="block text-gray-700 hover:text-amber-600 font-semibold transition">
+    Contacto
+  </a>
+</nav>
+
+<!-- Navegación para tablet y escritorio -->
+<nav id="menu" class="hidden md:flex space-x-6">
+  <a href="#inicio" class="text-gray-700 hover:text-amber-600 font-semibold transition duration-300 ease-in-out">
+    Home
+  </a>
+  <a href="productos.html" class="relative text-gray-700 hover:text-amber-600 font-semibold transition duration-300 ease-in-out group">
+    Productos
+    <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
+  </a>
+  <a href="#contacto" class="text-gray-700 hover:text-amber-600 font-semibold transition duration-300 ease-in-out">
+    Contacto
+  </a>
+</nav>
+
     <!-- Navegación para tablet y escritorio -->
 <nav id="menu" class="hidden md:flex space-x-6">
   <a href="#inicio" class="text-gray-700 hover:text-amber-600 font-semibold transition duration-300 ease-in-out">
@@ -258,14 +285,23 @@
 
 <!-- Scripts -->
 <script>
-  // 🔹 Menú móvil
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+  // 🔹 Menú móvil mejorado (funciona en celular)
+const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+
+if (menuBtn && mobileMenu) {
+  // Abrir/cerrar
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+  // Cerrar al hacer click en cualquier link del menú
+  document.querySelectorAll("#mobile-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
     });
-  }
+  });
+}
 
   // 🔹 FAQ desplegable
   document.querySelectorAll('.faq-btn').forEach(btn => {
