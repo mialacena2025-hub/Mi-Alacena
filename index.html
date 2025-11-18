@@ -100,57 +100,124 @@
 
 </section>
 
-<!-- Carrusel automático Imperdibles -->
-<div class="mt-8 w-full max-w-4xl mx-auto relative">
+<!-- Carrusel automático Imperdibles (REEMPLAZAR BLOQUE) -->
+<div class="mt-8 w-full mx-auto relative">
   <h3 class="text-2xl font-bold mb-4 text-center">Exito de ventas</h3>
 
-    <!-- Contenedor de productos -->
-  <div id="carrusel" class="flex overflow-x-auto gap-6 scrollbar-hide">
-    
-    <!-- Producto 1 -->
-    <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
-      <img src="images/destacados/destacado1.jpg" alt="Pack 180 huevos primera" class="w-full h-40 object-cover rounded-lg mb-3">
-      <h4 class="font-semibold text-lg">Pack 180 huevos primera blanco</h4>
-      <p class="text-gray-600">$34.990</p>
-    </div>
+  <!-- Viewport: muestra exactamente 2 cards (2 * 16rem + 1.5rem gap) -->
+  <div class="mx-auto" style="max-width: calc(2 * 16rem + 1.5rem);">
+    <!-- Wrapper que oculta overflow vertical/horizontal y mantiene el viewport fijo -->
+    <div id="carrusel-viewport" class="overflow-hidden">
+      <!-- Contenedor de productos (scrollable) -->
+      <div id="carrusel" class="flex gap-6 will-change-transform">
+        <!-- Producto 1 -->
+        <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
+          <img src="images/destacados/destacado1.jpg" alt="Pack 180 huevos primera" class="w-full h-40 object-cover rounded-lg mb-3">
+          <h4 class="font-semibold text-lg">Pack 180 huevos primera blanco</h4>
+          <p class="text-gray-600">$34.990</p>
+        </div>
 
-    <!-- Producto 2 -->
-    <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
-      <img src="images/destacados/destacado2.jpg" alt="Pack 24 caramelos Werthers" class="w-full h-40 object-cover rounded-lg mb-3">
-      <h4 class="font-semibold text-lg">Pack 24 caramelos Werthers</h4>
-      <p class="text-gray-600">$17.990</p>
-    </div>
+        <!-- Producto 2 -->
+        <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
+          <img src="images/destacados/destacado2.jpg" alt="Pack 24 caramelos Werthers" class="w-full h-40 object-cover rounded-lg mb-3">
+          <h4 class="font-semibold text-lg">Pack 24 caramelos Werthers</h4>
+          <p class="text-gray-600">$17.990</p>
+        </div>
 
-    <!-- Producto 3 -->
-    <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
-      <img src="images/destacados/destacado3.jpg" alt="Eritritol Bio" class="w-full h-40 object-cover rounded-lg mb-3">
-      <h4 class="font-semibold text-lg">Endulcorante natural Eritritol</h4>
-      <p class="text-gray-600">$5.000</p>
-    </div>
+        <!-- Producto 3 -->
+        <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
+          <img src="images/destacados/destacado3.jpg" alt="Eritritol Bio" class="w-full h-40 object-cover rounded-lg mb-3">
+          <h4 class="font-semibold text-lg">Endulcorante natural Eritritol</h4>
+          <p class="text-gray-600">$5.000</p>
+        </div>
 
-    <!-- Producto 4 -->
-    <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
-      <img src="images/destacados/destacado4.JPG" alt="Dulce de Leche Manfrey 400g" class="w-full h-40 object-cover rounded-lg mb-3">
-      <h4 class="font-semibold text-lg">Dulce de Leche Manfrey 400g</h4>
-      <p class="text-gray-600">$2.000</p>
-    </div>
+        <!-- Producto 4 -->
+        <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
+          <img src="images/destacados/destacado4.JPG" alt="Dulce de Leche Manfrey 400g" class="w-full h-40 object-cover rounded-lg mb-3">
+          <h4 class="font-semibold text-lg">Dulce de Leche Manfrey 400g</h4>
+          <p class="text-gray-600">$2.000</p>
+        </div>
 
-    <!-- Producto 5 -->
-    <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
-      <img src="images/destacados/destacado5.jpg" alt="Salsa de tomates Baggio 530g" class="w-full h-40 object-cover rounded-lg mb-3">
-      <h4 class="font-semibold text-lg">Salsa de tomate Baggio 530g</h4>
-      <p class="text-gray-600">$1.410</p>
-    </div>
+        <!-- Producto 5 -->
+        <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
+          <img src="images/destacados/destacado5.jpg" alt="Salsa de tomates Baggio 530g" class="w-full h-40 object-cover rounded-lg mb-3">
+          <h4 class="font-semibold text-lg">Salsa de tomate Baggio 530g</h4>
+          <p class="text-gray-600">$1.410</p>
+        </div>
 
-    <!-- Producto 6 -->
-    <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
-      <img src="images/destacados/destacado6.jpg" alt="Galletas para perro OREO HUMAN GRADE" class="w-full h-40 object-cover rounded-lg mb-3">
-      <h4 class="font-semibold text-lg">Galletas para perro OREO HUMAN GRADE</h4>
-      <p class="text-gray-600">$1.000</p>
+        <!-- Producto 6 -->
+        <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
+          <img src="images/destacados/destacado6.jpg" alt="Galletas para perro OREO HUMAN GRADE" class="w-full h-40 object-cover rounded-lg mb-3">
+          <h4 class="font-semibold text-lg">Galletas para perro OREO HUMAN GRADE</h4>
+          <p class="text-gray-600">$1.000</p>
+        </div>
+      </div>
     </div>
-
-  </div> <!-- ✔ CIERRE DEL CARRUSEL -->
+  </div>
 </div>
+
+<!-- SCRIPT: Auto-scroll en bloques de 2 tarjetas -->
+<script>
+  (function () {
+    const viewport = document.getElementById('carrusel-viewport');
+    const carrusel = document.getElementById('carrusel');
+
+    if (!carrusel || !viewport) return;
+
+    // calcular ancho de 1 card + gap dinámicamente
+    function getMetrics() {
+      const firstCard = carrusel.querySelector(':scope > div');
+      const gap = parseFloat(getComputedStyle(carrusel).gap) || 24; // px
+      const cardWidth = firstCard ? firstCard.getBoundingClientRect().width : 256;
+      return { cardWidth, gap, step: (cardWidth + gap) * 2 };
+    }
+
+    let { step } = getMetrics();
+    let position = 0;
+    let intervalId = null;
+    const delay = 2500; // ms
+
+    function startAuto() {
+      stopAuto(); // reset
+      intervalId = setInterval(() => {
+        const { cardWidth, gap } = getMetrics();
+        step = (cardWidth + gap) * 2;
+
+        // next position
+        position += step;
+
+        // si llegamos al final, volvemos al inicio (suave)
+        if (position >= carrusel.scrollWidth - viewport.clientWidth - 1) {
+          position = 0;
+        }
+
+        carrusel.scrollTo({ left: position, behavior: 'smooth' });
+      }, delay);
+    }
+
+    function stopAuto() {
+      if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+    }
+
+    // start
+    startAuto();
+
+    // pausa al pasar el mouse o al tocar en móvil
+    viewport.addEventListener('mouseenter', stopAuto);
+    viewport.addEventListener('mouseleave', startAuto);
+    viewport.addEventListener('touchstart', stopAuto);
+    viewport.addEventListener('touchend', startAuto);
+
+    // si se redimensiona la ventana, recalculamos métricas y reanudamos
+    window.addEventListener('resize', () => {
+      const { cardWidth, gap } = getMetrics();
+      step = (cardWidth + gap) * 2;
+    });
+  })();
+</script>
 
   <!-- Testimonios --> 
 <section class="mt-20 bg-amber-50 rounded-2xl shadow p-8"> 
@@ -298,33 +365,6 @@
     });
   }
   
-</script>
-
-<script>
-  const carrusel = document.getElementById('carrusel');
-
-  let position = 0; // desplazamiento en px
-
-  function moverCarrusel() {
-    const cardWidth = 280; // ancho aproximado de cada card (w-64 + gap)
-    const gap = 24;        // gap-6 es 24px
-    const total = cardWidth + gap;
-
-    // Mover 2 productos a la vez
-    position += total * 2;
-
-    // Si alcanza el final, vuelve a empezar
-    if (position >= carrusel.scrollWidth - carrusel.clientWidth) {
-      position = 0;
-    }
-
-    carrusel.scrollTo({
-      left: position,
-      behavior: 'smooth'
-    });
-  }
-
-  setInterval(moverCarrusel, 2500); // mueve cada 2.5 segundos
 </script>
 
 </body>
