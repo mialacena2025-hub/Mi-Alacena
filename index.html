@@ -42,11 +42,6 @@
 </div>
 </header>
 
-<!-- Botón Back to Top -->
-<button id="back-to-top" class="fixed bottom-6 right-28 opacity-0 bg-amber-600 text-white px-4 py-2 rounded-full shadow-lg transition-opacity">
-  ↑
-</button>
-
 <!-- Sección Hero -->
 <section class="relative bg-center bg-cover bg-no-repeat rounded-2xl overflow-hidden text-white shadow-lg fade-in opacity-0 transition-opacity duration-700 ease-out mt-20" style="background-image: url('https://images.unsplash.com/photo-1617196034796-3c0b8e91c703?auto=format&fit=crop&w=1200&q=80');">
   <div class="bg-black/40 absolute inset-0"></div>
@@ -109,111 +104,7 @@
 <div class="mt-8 w-full max-w-4xl mx-auto relative">
   <h3 class="text-2xl font-bold mb-4 text-center">Exito de ventas</h3>
 
-  <!-- Carrito flotante -->
-<div id="cart" class="fixed bottom-6 right-6 bg-white shadow-lg rounded-lg p-4 w-80 max-h-96 overflow-y-auto hidden z-50">
-  <h3 class="font-bold text-lg mb-2">Carrito 🛒</h3>
-  <ul id="cart-items" class="mb-2"></ul>
-  <p class="font-semibold">Total: $<span id="cart-total">0</span></p>
-  <button id="checkout" class="mt-2 w-full bg-green-500 text-white py-2 rounded-full hover:bg-green-600 transition">
-    Confirmar compra
-  </button>
-  <button id="close-cart" class="mt-1 w-full bg-red-500 text-white py-2 rounded-full hover:bg-red-600 transition">
-    Cerrar
-  </button>
-</div>
-
-<!-- Botón flotante para abrir carrito -->
-<button id="open-cart" class="fixed bottom-6 right-6 bg-amber-500 text-white px-4 py-2 rounded-full shadow-lg hover:scale-105 transition z-50">
-  🛒 Ver carrito
-</button>
-
-<!-- Pantalla de resumen -->
-<div id="resumen" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
-  <div class="bg-white w-11/12 md:w-2/3 lg:w-1/2 p-6 rounded-xl shadow-xl overflow-y-auto max-h-[90vh]">
-    <h2 class="text-2xl font-bold text-amber-600 mb-4">Resumen de tu pedido 🛒</h2>
-    <ul id="resumen-items" class="mb-4"></ul>
-    <p class="font-semibold text-lg mb-6">Total: $<span id="resumen-total">0</span></p>
-    <div class="flex justify-between gap-4">
-      <button id="cancelar-resumen" class="w-1/2 bg-red-500 text-white py-2 rounded-full hover:bg-red-600 transition">
-        Cancelar
-      </button>
-      <button id="confirmo-pedido" class="w-1/2 bg-green-500 text-white py-2 rounded-full hover:bg-green-600 transition">
-        Confirmo pedido ✅
-      </button>
-    </div>
-  </div>
-</div>
-
-<script>
-
-  // --- Variables del carrito ---
-  const cart = document.getElementById('cart');
-  const openCartBtn = document.getElementById('open-cart');
-  const closeCartBtn = document.getElementById('close-cart');
-  const cartItems = document.getElementById('cart-items');
-  const cartTotal = document.getElementById('cart-total');
-
-  const resumen = document.getElementById('resumen');
-  const resumenItems = document.getElementById('resumen-items');
-  const resumenTotal = document.getElementById('resumen-total');
-  const cancelarResumenBtn = document.getElementById('cancelar-resumen');
-  const confirmoPedidoBtn = document.getElementById('confirmo-pedido');
-
-  let carrito = [];
-
-  // --- Funciones ---
-  function actualizarCarrito() {
-    cartItems.innerHTML = '';
-    let total = 0;
-    carrito.forEach(item => {
-      total += item.precio * item.cantidad;
-      const li = document.createElement('li');
-      li.textContent = `${item.nombre} x${item.cantidad} - $${item.precio * item.cantidad}`;
-      cartItems.appendChild(li);
-    });
-    cartTotal.textContent = total;
-  }
-
-  function actualizarResumen() {
-    resumenItems.innerHTML = '';
-    let total = 0;
-    carrito.forEach(item => {
-      total += item.precio * item.cantidad;
-      const li = document.createElement('li');
-      li.textContent = `${item.nombre} x${item.cantidad} - $${item.precio * item.cantidad}`;
-      resumenItems.appendChild(li);
-    });
-    resumenTotal.textContent = total;
-  }
-
-  // --- Event listeners ---
-  openCartBtn.addEventListener('click', () => cart.classList.toggle('hidden'));
-  closeCartBtn.addEventListener('click', () => cart.classList.add('hidden'));
-  document.getElementById('checkout')?.addEventListener('click', () => {
-    actualizarResumen();
-    resumen.classList.remove('hidden');
-  });
-  cancelarResumenBtn.addEventListener('click', () => resumen.classList.add('hidden'));
-  confirmoPedidoBtn.addEventListener('click', () => {
-    alert('Pedido confirmado ✅');
-    carrito = [];
-    actualizarCarrito();
-    resumen.classList.add('hidden');
-  });
-
-  // --- Función para agregar productos ---
-  function agregarAlCarrito(producto) {
-    const existe = carrito.find(item => item.id === producto.id);
-    if (existe) {
-      existe.cantidad++;
-    } else {
-      carrito.push({...producto, cantidad:1});
-    }
-    actualizarCarrito();
-  }
-</script>
-
-  <!-- Contenedor de productos -->
+    <!-- Contenedor de productos -->
   <div id="carrusel" class="flex overflow-x-hidden gap-6">
     
     <!-- Producto 1 -->
@@ -221,134 +112,81 @@
       <img src="images/destacados/destacado1.jpg" alt="Pack 180 huevos primera" class="w-full h-40 object-cover rounded-lg mb-3">
       <h4 class="font-semibold text-lg">Pack 180 huevos primera blanco</h4>
       <p class="text-gray-600">$34.990</p>
-     <button 
-      onclick="agregarAlCarrito({id:1, nombre:'Pack 180 huevos primera blanco', precio:34990})"
-    class="bg-amber-500 text-white px-3 py-1 rounded-full mt-2 hover:scale-105 transition transform">
-    🛒 Agregar
-  </button>
-  </div>
+      </div>
 
     <!-- Producto 2 -->
     <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
       <img src="images/destacados/destacado2.jpg" alt="Pack 24 caramelos Werthers" class="w-full h-40 object-cover rounded-lg mb-3">
       <h4 class="font-semibold text-lg">Pack 24 caramelos Werthers</h4>
       <p class="text-gray-600">$17.990</p>
-      <button 
-      onclick="agregarAlCarrito({id:1, nombre:'Pack 24 caramelos Werthers', precio:17990})"
-    class="bg-amber-500 text-white px-3 py-1 rounded-full mt-2 hover:scale-105 transition transform">
-    🛒 Agregar
-  </button>
-  </div>
+      </div>
 
     <!-- Producto 3 -->
     <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
       <img src="images/destacados/destacado3.jpg" alt="Eritritol Bio" class="w-full h-40 object-cover rounded-lg mb-3">
       <h4 class="font-semibold text-lg">Endulcorante natural Eritritol</h4>
       <p class="text-gray-600">$5.000</p>
-      <button 
-      onclick="agregarAlCarrito({id:1, nombre:'Eritritol Bio', precio:5000})"
-    class="bg-amber-500 text-white px-3 py-1 rounded-full mt-2 hover:scale-105 transition transform">
-    🛒 Agregar
-  </button>
-  </div>
+      </div>
 
   <!-- Producto 4 -->
     <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
       <img src="images/destacados/destacado4.JPG" alt="Dulce de Leche Manfrey 400g" class="w-full h-40 object-cover rounded-lg mb-3">
       <h4 class="font-semibold text-lg">Dulce de Leche Manfrey 400g</h4>
       <p class="text-gray-600">$2.000</p>
-      <button 
-      onclick="agregarAlCarrito({id:1, nombre:'Dulce de Leche Manfrey 400g', precio:2000})"
-    class="bg-amber-500 text-white px-3 py-1 rounded-full mt-2 hover:scale-105 transition transform">
-    🛒 Agregar
-  </button>
-  </div>
+      </div>
 
   <!-- Producto 5 -->
     <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
       <img src="images/destacados/destacado5.jpg" alt="Salsa de tomates Baggio 530g" class="w-full h-40 object-cover rounded-lg mb-3">
       <h4 class="font-semibold text-lg">Salsa de tomate Baggio 530g</h4>
       <p class="text-gray-600">$1.410</p>
-      <button 
-      onclick="agregarAlCarrito({id:1, nombre:'Salsa de tomates Baggio 530g', precio:1410})"
-    class="bg-amber-500 text-white px-3 py-1 rounded-full mt-2 hover:scale-105 transition transform">
-    🛒 Agregar
-  </button>
-  </div>
+      </div>
 
   <!-- Producto 6 -->
     <div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center transition transform hover:scale-105 hover:shadow-2xl">
       <img src="images/destacados/destacado6.jpg" alt="Galletas para perro OREO HUMAN GRADE" class="w-full h-40 object-cover rounded-lg mb-3">
       <h4 class="font-semibold text-lg">Galletas para perro OREO HUMAN GRADE</h4>
       <p class="text-gray-600">$1.000</p>
-      <button 
-      onclick="agregarAlCarrito({id:1, nombre:'Galletas para perro OREO HUMAN GRADE', precio:1000})"
-    class="bg-amber-500 text-white px-3 py-1 rounded-full mt-2 hover:scale-105 transition transform">
-    🛒 Agregar
-  </button>
-  </div>
+      </div>
 
-  <!-- Botones de control -->
-  <button id="prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow hover:bg-gray-100">◀</button>
-  <button id="next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow hover:bg-gray-100">▶</button>
-</div>
-
-<!-- JS para slider automático y botones -->
-<script>
-const carrusel = document.getElementById('carrusel');
-const prev = document.getElementById('prev');
-const next = document.getElementById('next');
-let scrollAmount = 0;
-
-// Botones manuales
-prev.addEventListener('click', () => {
-  carrusel.scrollBy({ left: -280, behavior: 'smooth' });
-});
-next.addEventListener('click', () => {
-  carrusel.scrollBy({ left: 280, behavior: 'smooth' });
-});
-
-// Slider automático cada 4 segundos
-setInterval(() => {
-  if(scrollAmount >= carrusel.scrollWidth - carrusel.clientWidth){
-    scrollAmount = 0;
-    carrusel.scrollTo({ left: 0, behavior: 'smooth' });
-  } else {
-    scrollAmount += 280;
-    carrusel.scrollBy({ left: 280, behavior: 'smooth' });
-  }
-}, 4000);
-</script>
-  
- <!-- Testimonios --> 
+  <!-- Testimonios --> 
 <section class="mt-20 bg-amber-50 rounded-2xl shadow p-8"> 
   <h2 class="text-3xl font-bold text-amber-600 mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600 fade-in">
     Lo que dicen nuestros clientes 🗣️
   </h2> 
 
   <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3"> 
-    <div class="bg-white p-6 rounded-xl shadow-md fade-in">
-      <p class="text-gray-700 mb-4">“Los productos son muy variados, siempre llegan en los plazos comprometidos, la atención es muy buena y los precios son atractivos.”</p>
-      <div class="flex items-center">
-        <img src="images/varios/varios4.jpg" alt="Cliente 1" class="rounded-full mr-3">
+    <!-- Testimonio 1 -->
+    <div class="bg-white p-6 rounded-xl shadow-md fade-in relative overflow-hidden">
+      <p class="text-black mb-4 relative z-10 p-4 rounded" style="background-image: url('images/varios/varios4.jpg'); background-size: cover; background-position: center; background-blend-mode: lighten; background-color: rgba(255,255,255,0.6);">
+        “Los productos son muy variados, siempre llegan en los plazos comprometidos, la atención es muy buena y los precios son atractivos.”
+      </p>
+      <div class="flex items-center mt-4">
         <span class="font-semibold">Rodrigo - Talagante.</span>
       </div>
-    </div> 
-    <div class="bg-white p-6 rounded-xl shadow-md fade-in">
-      <p class="text-gray-700 mb-4">“100% recomendado, súper buenos productos, amo que tengan sin gluten  y de buena calidad,  que mejor directo a la casa 🤩🤩.”</p>
-      <div class="flex items-center">
-        <img src="images/varios/varios4.jpg" alt="Cliente 2" class="rounded-full mr-3">
+    </div>
+
+    <!-- Testimonio 2 -->
+    <div class="bg-white p-6 rounded-xl shadow-md fade-in relative overflow-hidden">
+      <p class="text-black mb-4 relative z-10 p-4 rounded" style="background-image: url('images/varios/varios4.jpg'); background-size: cover; background-position: center; background-blend-mode: lighten; background-color: rgba(255,255,255,0.6);">
+        “100% recomendado, súper buenos productos, amo que tengan sin gluten y de buena calidad, que mejor directo a la casa 🤩🤩.”
+      </p>
+      <div class="flex items-center mt-4">
         <span class="font-semibold">Bea - Isla de Maipo.</span>
       </div>
-    </div> 
-    <div class="bg-white p-6 rounded-xl shadow-md fade-in">
-      <p class="text-gray-700 mb-4">“Lo recomiendo mucho, productos de calidad y a muy buen precio, responsables en la entrega”.</p>
-      <div class="flex items-center">
-        <img src="images/varios/varios4.jpg" alt="Cliente 3" class="rounded-full mr-3">
-        <span class="font-semibold">Marcela Rivera - Condominio Ladislao</span>
+    </div>
+
+    <!-- Testimonio 3 -->
+    <div class="bg-white p-6 rounded-xl shadow-md fade-in relative overflow-hidden">
+      <p class="text-black mb-4 relative z-10 p-4 rounded" style="background-image: url('images/varios/varios4.jpg'); background-size: cover; background-position: center; background-blend-mode: lighten; background-color: rgba(255,255,255,0.6);">
+        “Lo recomiendo mucho, productos de calidad y a muy buen precio, responsables en la entrega.”
+      </p>
+      <div class="flex items-center mt-4">
+        <span class="font-semibold">Marcela Rivera - Condominio Ladislao, Talagante.</span>
       </div>
-    </div> 
+    </div>
   </div>
+</section>
 
   <!-- FAQ --> <section class="mt-20 bg-amber-50 rounded-2xl shadow p-8 fade-in"> 
   <h2 class="text-3xl font-bold text-amber-600 mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600">Preguntas Frecuentes ❓</h2> 
